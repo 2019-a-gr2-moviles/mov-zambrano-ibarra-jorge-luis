@@ -1,3 +1,5 @@
+import java.util.*
+
 fun main(args: Array<String>) {
         //Variables
         //Que es mutar?
@@ -42,7 +44,90 @@ fun main(args: Array<String>) {
         estaJalado(0.0)
         estaJalado(7.0)
         estaJalado(10.0)
+        holaMundo("Jorge")
+        holaMundoAvanzado(2)
+        val total=sumarDosNumeros(1,2)
+        println(total)
 
+        val arregloCumpleanos: Array<Int> = arrayOf(1,2,3,4)
+        var arregloTodo: Array<Any> = arrayOf(1,"asd",2.2,true)
+        arregloCumpleanos.set(0,5)
+        arregloTodo= arrayOf(5,2,3,4)
+
+        var notas = arrayListOf(1,2,3,4,5,6)
+        
+
+        //forEach -> itera el arreglo
+        notas.forEach { nota: Int ->
+                println(nota)
+        }
+
+        notas.forEachIndexed(){ indice, nota ->
+                println("Indice:$indice")
+                println("Nota: $nota")
+
+        }
+
+        //map -> itera y modififca el arreglo
+        val notaDos= notas.map { nota->
+                nota +1
+        }
+
+        notaDos.forEach{
+                println("Notas 2: $it")
+        }
+        //Impares +1  Pares +2
+        val notaTres= notas.map { nota->
+                val mod= nota%2
+                val esPar=0
+                when (mod){
+                        esPar->{
+                                nota+2
+                        }
+                        else ->{
+                                nota+1
+                        }
+                }
+        }
+
+        notaTres.forEach{
+                println("Notas 3: $it")
+        }
+
+        val respuestaFilter = notas.filter{
+                it in 3..4 //it>2&&it<5
+
+        }.map {
+                it*2
+        }
+
+        respuestaFilter.forEach{
+                println(it)
+        }
+
+        val novias = arrayListOf(1,2,2,3,4,5)
+
+        val respuestaNovia =novias.any {
+                it==3
+        }
+
+        println(respuestaNovia)
+
+        val tazos = arrayListOf(1,2,3,4,5,6,7)
+        val respuestaTazos= tazos.all {
+                it>1
+        }
+        println(respuestaTazos)
+
+        val respuestaTazos1 = tazos.reduce { valorAcum, tazo ->
+                        valorAcum+tazo
+        }
+        println(respuestaTazos1)
+
+        //val fecha = Date()
+        //fecha.time=1112321
+        //sumarDosNumeros(numUno:1,numDos:2)
+        //numUno y numDos lo pone el editor
 
 
 }
@@ -64,4 +149,15 @@ fun estaJalado(nota:Double): Double{
 
         }
         return nota
+}
+fun holaMundo(mensaje:String):Unit{
+        println("Mensaje: $mensaje.")
+
+}
+fun holaMundoAvanzado(mensaje:Any):Unit{
+        println("Mensaje: $mensaje.")
+
+}
+fun sumarDosNumeros(numUno: Int, numDos: Int): Int{
+        return numUno+numDos
 }
