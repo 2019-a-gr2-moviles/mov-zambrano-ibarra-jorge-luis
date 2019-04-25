@@ -1,5 +1,3 @@
-import java.util.*
-
 fun main(args: Array<String>) {
         //Variables
         //Que es mutar?
@@ -128,6 +126,7 @@ fun main(args: Array<String>) {
         //fecha.time=1112321
         //sumarDosNumeros(numUno:1,numDos:2)
         //numUno y numDos lo pone el editor
+        val numerito =Numero("1")
 
 
 }
@@ -160,4 +159,98 @@ fun holaMundoAvanzado(mensaje:Any):Unit{
 }
 fun sumarDosNumeros(numUno: Int, numDos: Int): Int{
         return numUno+numDos
+}
+
+class Usuario(val cedula:String){
+        public var nombre:String=""
+        public var apellido:String=""
+
+        constructor(cedulaM:String,apellido:String):this(cedulaM){
+                this.apellido= apellido
+        }
+}
+
+class UsuarioKT( var nombre:String,  var apellido: String, private var id:Int,private var edad:Int){
+        fun hola():String{
+            return this.apellido;
+        }
+
+        private fun hola2(){
+
+        }
+
+        protected fun hola3(){
+
+        }
+
+        companion object {
+                val gravedad=10.5
+                fun correr(){
+                        println("Estoy corriendo en $gravedad")
+                }
+        }
+}
+
+class BaseDeDatos{
+        companion object {
+            val usuarios= arrayListOf(1,2,3)
+            fun agregarUsuario(usuario:Int){
+                    this.usuarios.add(usuario)
+            }
+        }
+}
+
+fun aa(){
+        UsuarioKT.gravedad
+        UsuarioKT.correr()
+}
+fun a(){
+        val jorge = UsuarioKT("a","b",1,1)
+        jorge.nombre="jorge luis"
+
+        val jorge2= Usuario("a")
+        jorge2.apellido="as"
+
+}
+
+class Numero(var numero:Int){
+        constructor(numeroString:String):this(numeroString.toInt()){
+                println("CONSTRUCTOR")
+        }
+        init {
+                println("INIT")
+        }
+}
+
+class A(){
+       //A.correr() //metodo estatico
+        // A.gravedad //propiedad estatica
+}
+
+//clases abstractas--> no se instancian
+
+abstract class Numeros(var numeroUno:Int, var numeroDos:Int){
+
+}
+class Suma (numeroUnos:Int,
+            numeroDoss:Int):Numeros(numeroUnos,numeroDoss){
+
+}
+fun cc(){
+        val a=Suma(1,2);
+}
+fun presley(requerido:Int,
+            opcional:Int=1,
+            nulo:UsuarioKT?)/*a veces es nulo*/{
+        if(nulo!=null) {
+                nulo.nombre
+        }
+        val nombresito = nulo?.nombre
+        nulo!!.nombre
+}
+fun cdddd(){
+        presley(requerido=1,nulo = 0)// named parameters para saltarse los opcionales
+        presley(1,1,0)
+        presley(1,1,null)
+
 }
