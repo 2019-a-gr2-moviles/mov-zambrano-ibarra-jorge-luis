@@ -249,7 +249,7 @@ fun presley(requerido:Int,
         nulo!!.nombre
 }
 fun cdddd(){
-        presley(requerido=1,nulo = 0)// named parameters para saltarse los opcionales
+        presley(requerido=1,nulo = "1")// named parameters para saltarse los opcionales
         presley(1,1,0)
         presley(1,1,null)
 
