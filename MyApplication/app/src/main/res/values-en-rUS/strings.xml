@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TEODIOMUCHISIMO</string>
+    <string name="app_name">Te odio Android Studio1</string>
     <string name="action_settings">Settings</string>
-    <color name="colorHolaMundo">#008577</color>
+    <string name="hola_mundo">Hello world!</string>
+
 </resources>
