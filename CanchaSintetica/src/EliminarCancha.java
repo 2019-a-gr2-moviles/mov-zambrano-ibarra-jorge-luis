@@ -71,7 +71,7 @@ public class EliminarCancha {
 
         JFrame fram1 = new JFrame("Actualizar Cancha");
         // create a table model and set a Column Identifiers to this model
-        Object[] columns = {"Numero Canchas"};
+        Object[] columns = {"Lista de Canchas"};
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
 
