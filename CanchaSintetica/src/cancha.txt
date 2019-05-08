@@ -1,0 +1,8 @@
+
+Número:1Desc:1MetrosCuadrados:1.0Precio:1.0
+
+
+
+Reserva.Cliente:1316509213FechaReservaInicial:qwerFechaReservaFinal:dasfValorPagar:12.0Cancha:1
+
+Reserva.Cliente:1316509213FechaReservaInicial:qwerFechaReservaFinal:dasfValorPagar:12.0Cancha:1
