@@ -37,14 +37,14 @@ fun IngresarCancha (indiceCancha: Int, descipcionIng:String, metrosCuadradosIng:
     var writer: FileWriter? = null
     val canchaList: ArrayList<String> = ArrayList<String>(5)
     val disponible=true;
-    canchaList.add("\n"+nuevaCancha.toString().replace("[,| \\[ | \\] ]".toRegex(), "")+"\n")
+    canchaList.add("\n"+nuevaCancha.toString().replace("[\\[|\\]]".toRegex(), "")+"\n")
 
 
 
     try {
         archivo.createNewFile()//Si y solo si archivo no existe
         writer = FileWriter(archivo, true)
-        writer.append(canchaList.toString().replace("[,| \\[ | \\] ]".toRegex(), ""))
+        writer.append(canchaList.toString().replace("[\\[|\\]]".toRegex(), ""))
         JOptionPane.showMessageDialog(null,"Guardado")
 
     } catch (ex: IOException) {
@@ -66,7 +66,7 @@ fun IngresarCancha (indiceCancha: Int, descipcionIng:String, metrosCuadradosIng:
 fun eliminarCancha ( canchaEliminada:String):Unit {
 
     archivo.writeText("")
-   var writer: FileWriter? = null
+    var writer: FileWriter? = null
     val canchaList: ArrayList<String> = ArrayList<String>(5)
     val disponible=true;
 
@@ -75,7 +75,7 @@ fun eliminarCancha ( canchaEliminada:String):Unit {
     try {
         archivo.createNewFile()//Si y solo si archivo no existe
         writer = FileWriter(archivo, true)
-        writer.append(canchaEliminada.replace("[ \\[ | \\] ]","")+"\n")
+        writer.append(canchaEliminada.replace("[,|\\[|\\]]","")+"\n")
         JOptionPane.showMessageDialog(null,"Eliminado")
 
     } catch (ex: IOException) {
@@ -107,7 +107,7 @@ fun ActualizarCancha ( canchaActualizada:String):Unit {
     try {
         archivo.createNewFile()//Si y solo si archivo no existe
         writer = FileWriter(archivo, true)
-        writer.append(canchaActualizada.replace("[ \\[ | \\] ]","")+"\n")
+        writer.append(canchaActualizada.replace("[,|\\[|\\]]","")+"\n")
         JOptionPane.showMessageDialog(null,"Actualizado")
 
     } catch (ex: IOException) {
@@ -132,11 +132,16 @@ fun listaCancha ():Unit {
     val canchaList = Array<String>(1, { i -> "Number of index: \$i" })
     val bf = BufferedReader(FileReader("C:\\Users\\ZAMBRANO JORGE\\Documents\\GITHUB\\mov-zambrano-ibarra-jorge-luis\\CanchaSintetica\\src\\cancha.txt"))
     var temp = ""
+    var tempSplit= List<String>(4,{ i -> "Number of index: \$i" });
 
     while (bf.readLine() != null) {
-       temp=  bf.readLine()+"\n"
-        canchaList.fill(temp);
-        BuscarCancha.model.addRow(canchaList) //guardado el texto del archivo
+        temp=  bf.readLine()+"\n"
+        tempSplit=temp.split(";")
+
+        BuscarCancha.model.addRow(tempSplit.stream().toArray())
+
+        // canchaList.fill(temp);
+        //BuscarCancha.model.addRow(canchaList) //guardado el texto del archivo
     }
 
 
@@ -148,13 +153,17 @@ fun listaCanchaAct ():Unit {
     val canchaList = Array<String>(1, { i -> "Number of index: \$i" })
     val bf = BufferedReader(FileReader("C:\\Users\\ZAMBRANO JORGE\\Documents\\GITHUB\\mov-zambrano-ibarra-jorge-luis\\CanchaSintetica\\src\\cancha.txt"))
     var temp = ""
+    var tempSplit= List<String>(4,{ i -> "Number of index: \$i" });
 
     while (bf.readLine() != null) {
         temp=  bf.readLine()+"\n"
-        canchaList.fill(temp);
-        ActualizarCancha.model.addRow(canchaList) //guardado el texto del archivo
-    }
+        tempSplit=temp.split(";")
 
+        ActualizarCancha.model.addRow(tempSplit.stream().toArray())
+
+        // canchaList.fill(temp);
+        //BuscarCancha.model.addRow(canchaList) //guardado el texto del archivo
+    }
 
 
 }
@@ -164,11 +173,16 @@ fun listaCanchaEli ():Unit {
     val canchaList = Array<String>(1, { i -> "Number of index: \$i" })
     val bf = BufferedReader(FileReader("C:\\Users\\ZAMBRANO JORGE\\Documents\\GITHUB\\mov-zambrano-ibarra-jorge-luis\\CanchaSintetica\\src\\cancha.txt"))
     var temp = ""
+    var tempSplit= List<String>(4,{ i -> "Number of index: \$i" });
 
     while (bf.readLine() != null) {
         temp=  bf.readLine()+"\n"
-        canchaList.fill(temp);
-        EliminarCancha.model.addRow(canchaList) //guardado el texto del archivo
+        tempSplit=temp.split(";")
+
+        EliminarCancha.model.addRow(tempSplit.stream().toArray())
+
+        // canchaList.fill(temp);
+        //BuscarCancha.model.addRow(canchaList) //guardado el texto del archivo
     }
 
 

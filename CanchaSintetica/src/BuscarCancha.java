@@ -21,7 +21,7 @@ public class BuscarCancha {
     public static JTable table ;
     public static JFrame fram1;
     public  static void main(String []args){
-     llenar();
+        llenar();
 
 
     }
@@ -35,7 +35,7 @@ public class BuscarCancha {
 
         fram1 = new JFrame("Buscar Cancha");
         // create a table model and set a Column Identifiers to this model
-        Object[] columns = {"Lista de Canchas"};
+        Object[] columns = {"Número","Descripción","m2", "Precio"};
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
 

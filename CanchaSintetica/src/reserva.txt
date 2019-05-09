@@ -1,6 +1,2 @@
 
-asdfadsf
-
-
-
-Reserva.Cliente:1316509213FechaReservaInicial:asdfFechaReservaFinal:adsfValorPagar:12.0Cancha:1
+1316509213;hoy;mañana;12.0;1
