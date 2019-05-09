@@ -64,7 +64,7 @@ public  void leer() throws FileNotFoundException, IOException {
     String temp="";
     while( b.readLine()!=null) {
         temp+=b.readLine();
-        cbxCliente.addItem(temp.substring(7,17));
+        cbxCliente.addItem(temp.substring(0,10));
     }
     b.close();
 }
@@ -75,7 +75,7 @@ public  void leer() throws FileNotFoundException, IOException {
         String temp="";
         while( b.readLine()!=null) {
             temp+=b.readLine();
-            cbxCancha.addItem(temp.substring(7,8));
+            cbxCancha.addItem(temp.substring(0,1));
         }
         b.close();
     }

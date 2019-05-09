@@ -72,7 +72,7 @@ public class EliminarCliente{
 
         JFrame fram1 = new JFrame("Eliminar Cliente");
         // create a table model and set a Column Identifiers to this model
-        Object[] columns = {"Lista de Clientes"};
+        Object[] columns = {"Cedula", "Nombres", "Telefono", "Direccion"};
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
 
@@ -138,19 +138,28 @@ public class EliminarCliente{
                 } else {
                     JOptionPane.showMessageDialog(null, "No Selecciono Ninguna Fila", "Aviso", JOptionPane.ERROR_MESSAGE);
                 }
-
+                String temp="";
 
                 for (int i = 0 ; i < table.getRowCount(); i++) //realiza un barrido por filas.
                 {
                     for (int j = 0; j < table.getColumnCount(); j++) //realiza un barrido por columnas.
                     {
-                        clienteEliminado.add((String) (table.getValueAt(i, j)+"\n"));
+                        if(j!=table.getColumnCount()-1) {
+                            temp += ((String) (table.getValueAt(i, j) + ";"));
+                        }else{
+                            temp += ((String) (table.getValueAt(i, j) ));
+                        }
+
 
                     }
-
+                    if(i!=table.getRowCount()-1) {
+                        temp += "\n";
+                    }else{
+                        temp+="";
+                    }
                 }
-
-                FunUsuarioKt.eliminarClieinte("\n"+clienteEliminado.toString().replaceAll("[,| \\[ | \\] ]",""));  }
+                clienteEliminado.add(temp);
+                FunUsuarioKt.eliminarClieinte("\n"+clienteEliminado.toString().replaceAll("[,|\\[|\\]]","").trim());  }
         });
     }
 }

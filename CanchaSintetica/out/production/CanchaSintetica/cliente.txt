@@ -1,2 +1,2 @@
 
-Cedula:1316509213Apellido:asdTelefono:asdfDireccion:asdf
+1316509213;jorge luis zambrano;0988953010;av 5 de junio

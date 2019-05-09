@@ -37,7 +37,7 @@ public class BuscarCliente {
 
         fram1 = new JFrame("Buscar Cliente");
         // create a table model and set a Column Identifiers to this model
-        Object[] columns = {"Lista de Clientes"};
+        Object[] columns = {"Cedula", "Nombres", "Telefono", "Direccion"};
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
 

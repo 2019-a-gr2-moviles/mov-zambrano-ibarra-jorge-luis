@@ -59,7 +59,7 @@ public class ActualizarReserva {
         lblBusqueda.setText("Buscar:");
         JFrame fram1 = new JFrame("Actualizar Reserva");
         // create a table model and set a Column Identifiers to this model
-        Object[] columns = {"Lista de Reserva"};
+        Object[] columns = {"Cliente","Inicio","Fin","Precio","Cancha"};
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
 
@@ -110,19 +110,23 @@ public class ActualizarReserva {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
+                String temp="";
                 ArrayList<String> reservaActualizada = new ArrayList<String>();
                 for (int i = 0 ; i < table.getRowCount(); i++) //realiza un barrido por filas.
                 {
                     for (int j = 0; j < table.getColumnCount(); j++) //realiza un barrido por columnas.
                     {
-                        reservaActualizada.add((String) (table.getValueAt(i, j)+"\n"));
+                        if(j!=table.getColumnCount()-1) {
+                            temp += ((String) (table.getValueAt(i, j) + ";"));
+                        }else{
+                            temp += ((String) (table.getValueAt(i, j) ));
+                        }
 
                     }
-
+                    temp+=("\n");
                 }
-
-                FunReservaKt.actualizarReserva("\n"+reservaActualizada.toString().replaceAll("[,| \\[ | \\] ]","").trim());}
+                reservaActualizada.add(temp);
+                FunReservaKt.actualizarReserva("\n"+reservaActualizada.toString().replaceAll("[,|\\[|\\]]","").trim());}
         });
     }
 }

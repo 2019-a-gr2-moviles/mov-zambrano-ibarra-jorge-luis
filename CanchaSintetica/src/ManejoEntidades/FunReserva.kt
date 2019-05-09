@@ -37,14 +37,14 @@ fun IngresarReserva (cedulaCliente:String,fechainicial:String,fechaFinal:String,
     var writer: FileWriter? = null
     val reservaList: ArrayList<String> = ArrayList<String>(5)
     val disponible=true;
-    reservaList.add("\n"+nuevaReserva.toString().replace("[,| \\[ | \\] ]".toRegex(), "")+"\n")
+    reservaList.add("\n"+nuevaReserva.toString().replace("[,|\\[|\\]]".toRegex(), "")+"\n")
 
 
 
     try {
         archivoReserva.createNewFile()//Si y solo si archivo no existe
         writer = FileWriter(archivoReserva, true)
-        writer.append(reservaList.toString().replace("[,| \\[ | \\] ]".toRegex(), ""))
+        writer.append(reservaList.toString().replace("[,|\\[|\\]]".toRegex(), ""))
         JOptionPane.showMessageDialog(null,"Guardado")
 
     } catch (ex: IOException) {
@@ -75,7 +75,7 @@ fun eliminarReserva ( reservaEliminada:String):Unit {
     try {
         archivoReserva.createNewFile()//Si y solo si archivo no existe
         writer = FileWriter(archivoReserva, true)
-        writer.append(reservaEliminada.replace("[ \\[ | \\] ]","")+"\n")
+        writer.append(reservaEliminada.replace("[\\[|\\]]","")+"\n")
 
         JOptionPane.showMessageDialog(null,"Eliminaado")
     } catch (ex: IOException) {
@@ -107,7 +107,7 @@ fun actualizarReserva ( reservaActualizada:String):Unit {
     try {
         archivoReserva.createNewFile()//Si y solo si archivo no existe
         writer = FileWriter(archivoReserva, true)
-        writer.append(reservaActualizada.replace("[ \\[ | \\] ]","")+"\n")
+        writer.append(reservaActualizada.replace("[\\[|\\]]","")+"\n")
         JOptionPane.showMessageDialog(null,"Actualizado")
 
     } catch (ex: IOException) {
@@ -133,10 +133,12 @@ fun listaReserva ():Unit {
     val bf = BufferedReader(FileReader("C:\\Users\\ZAMBRANO JORGE\\Documents\\GITHUB\\mov-zambrano-ibarra-jorge-luis\\CanchaSintetica\\src\\reserva.txt"))
     var temp = ""
 
+    var tempSplit= List<String>(4,{ i -> "Number of index: \$i" });
+
     while (bf.readLine() != null) {
         temp=  bf.readLine()+"\n"
-        canchaList.fill(temp);
-        BuscarReserva.model.addRow(canchaList) //guardado el texto del archivo
+        tempSplit=temp.split(";")
+        BuscarReserva.model.addRow(tempSplit.stream().toArray()) //guardado el texto del archivo
     }
 
 
@@ -149,10 +151,12 @@ fun listaReservaAct ():Unit {
     val bf = BufferedReader(FileReader("C:\\Users\\ZAMBRANO JORGE\\Documents\\GITHUB\\mov-zambrano-ibarra-jorge-luis\\CanchaSintetica\\src\\reserva.txt"))
     var temp = ""
 
+    var tempSplit= List<String>(4,{ i -> "Number of index: \$i" });
+
     while (bf.readLine() != null) {
         temp=  bf.readLine()+"\n"
-        canchaList.fill(temp);
-        ActualizarReserva.model.addRow(canchaList) //guardado el texto del archivo
+        tempSplit=temp.split(";")
+        ActualizarReserva.model.addRow(tempSplit.stream().toArray()) //guardado el texto del archivo
     }
 
 
@@ -165,10 +169,12 @@ fun listaReservaEli ():Unit {
     val bf = BufferedReader(FileReader("C:\\Users\\ZAMBRANO JORGE\\Documents\\GITHUB\\mov-zambrano-ibarra-jorge-luis\\CanchaSintetica\\src\\reserva.txt"))
     var temp = ""
 
+    var tempSplit= List<String>(4,{ i -> "Number of index: \$i" });
+
     while (bf.readLine() != null) {
         temp=  bf.readLine()+"\n"
-        canchaList.fill(temp);
-        EliminarReserva.model.addRow(canchaList) //guardado el texto del archivo
+        tempSplit=temp.split(";")
+        EliminarReserva.model.addRow(tempSplit.stream().toArray()) //guardado el texto del archivo
     }
 
 

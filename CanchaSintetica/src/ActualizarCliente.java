@@ -28,19 +28,23 @@ public class ActualizarCliente {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
+                String temp="";
                 ArrayList<String> clienteActualizado = new ArrayList<String>();
                 for (int i = 0 ; i < table.getRowCount(); i++) //realiza un barrido por filas.
                 {
                     for (int j = 0; j < table.getColumnCount(); j++) //realiza un barrido por columnas.
                     {
-                        clienteActualizado.add((String) (table.getValueAt(i, j)+"\n"));
+                        if(j!=table.getColumnCount()-1) {
+                            temp += ((String) (table.getValueAt(i, j) + ";"));
+                        }else{
+                            temp += ((String) (table.getValueAt(i, j) ));
+                        }
 
                     }
 
                 }
-
-                FunUsuarioKt.actualizarCliente("\n"+clienteActualizado.toString().replaceAll("[,| \\[ | \\] ]","").trim());}
+                clienteActualizado.add(temp);
+                FunUsuarioKt.actualizarCliente("\n"+clienteActualizado.toString().replaceAll("[,|\\[|\\]]","").trim());}
         });
 
 
@@ -58,7 +62,7 @@ public class ActualizarCliente {
         lblBusqueda.setText("Buscar:");
         JFrame fram1 = new JFrame("Actualizar Cliente");
         // create a table model and set a Column Identifiers to this model
-        Object[] columns = {"Lista de Clientes"};
+        Object[] columns = {"Cedula", "Nombres", "Telefono", "Direccion"};
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
 
@@ -109,19 +113,24 @@ public class ActualizarCliente {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
+                String temp="";
                 ArrayList<String> clienteActualizado = new ArrayList<String>();
                 for (int i = 0 ; i < table.getRowCount(); i++) //realiza un barrido por filas.
                 {
                     for (int j = 0; j < table.getColumnCount(); j++) //realiza un barrido por columnas.
                     {
-                        clienteActualizado.add((String) (table.getValueAt(i, j)+"\n"));
+                        if(j!=table.getColumnCount()-1) {
+                            temp += ((String) (table.getValueAt(i, j) + ";"));
+                        }else{
+                            temp += ((String) (table.getValueAt(i, j) ));
+                        }
 
                     }
-
+                    temp+=("\n");
                 }
-
-                FunUsuarioKt.actualizarCliente("\n"+clienteActualizado.toString().replaceAll("[,| \\[ | \\] ]","").trim());}
+                clienteActualizado.add(temp);
+                FunUsuarioKt.actualizarCliente("\n"+clienteActualizado.toString().replaceAll("[,|\\[|\\]]","").trim());}
         });
+
     }
 }

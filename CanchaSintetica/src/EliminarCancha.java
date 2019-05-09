@@ -66,12 +66,12 @@ public class EliminarCancha {
         textId = new JTextField();
         JTable table = new JTable();
         lblBusqueda= new JLabel();
-         btnAdd = new JButton("Eliminar");
+        btnAdd = new JButton("Eliminar");
         lblBusqueda.setText("Buscar:");
 
         JFrame fram1 = new JFrame("Actualizar Cancha");
         // create a table model and set a Column Identifiers to this model
-        Object[] columns = {"Lista de Canchas"};
+        Object[] columns = {"Número","Descripción","m2", "Precio"};
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
 
@@ -138,18 +138,29 @@ public class EliminarCancha {
                     JOptionPane.showMessageDialog(null, "No Selecciono Ninguna Fila", "Aviso", JOptionPane.ERROR_MESSAGE);
                 }
 
+                String temp="";
 
                 for (int i = 0 ; i < table.getRowCount(); i++) //realiza un barrido por filas.
                 {
                     for (int j = 0; j < table.getColumnCount(); j++) //realiza un barrido por columnas.
                     {
-                        canchaEliminada.add((String) (table.getValueAt(i, j)+"\n"));
+                        if(j!=table.getColumnCount()-1) {
+                            temp += ((String) (table.getValueAt(i, j) + ";"));
+                        }else{
+                            temp += ((String) (table.getValueAt(i, j) ));
+                        }
 
                     }
 
+                    if(i!=table.getRowCount()-1) {
+                        temp += "\n";
+                    }else{
+                        temp+="";
+                    }
                 }
+                canchaEliminada.add(temp);
 
-                FunCanchaKt.eliminarCancha("\n"+canchaEliminada.toString().replaceAll("[,| \\[ | \\] ]",""));  }
+                FunCanchaKt.eliminarCancha("\n"+canchaEliminada.toString().replaceAll("[,|\\[|\\]]","").trim());  }
         });
     }
 }

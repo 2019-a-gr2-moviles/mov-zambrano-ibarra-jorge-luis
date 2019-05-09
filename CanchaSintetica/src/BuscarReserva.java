@@ -33,7 +33,7 @@ public class BuscarReserva {
 
         fram1 = new JFrame("Buscar Reservas");
         // create a table model and set a Column Identifiers to this model
-        Object[] columns = {"Lista de Reservas"};
+        Object[] columns = {"Cliente","Inicio","Fin","Precio","Cancha"};
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
 

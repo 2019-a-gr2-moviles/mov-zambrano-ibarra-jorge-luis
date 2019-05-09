@@ -29,21 +29,21 @@ public class ActualizarCancha {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
+                String temp="";
                 ArrayList<String> canchaActualizada = new ArrayList<String>();
                 for (int i = 0 ; i < table.getRowCount(); i++) //realiza un barrido por filas.
                 {
                     for (int j = 0; j < table.getColumnCount(); j++) //realiza un barrido por columnas.
                     {
-                        canchaActualizada.add((String) (table.getValueAt(i, j)+"\n"));
+                        temp+=((String) (table.getValueAt(i, j)+","));
 
                     }
-
+                    canchaActualizada.add(temp.substring(1,temp.length()-1));
+                    canchaActualizada.add("\n");
                 }
 
-                FunCanchaKt.ActualizarCancha("\n"+canchaActualizada.toString().replaceAll("[,| \\[ | \\] ]","").trim());}
+                FunCanchaKt.ActualizarCancha("\n"+canchaActualizada.toString().replaceAll("[ \\[ | \\] ]","").trim());}
         });
-
 
 
     }
@@ -54,12 +54,12 @@ public class ActualizarCancha {
     public static void llenar(){
         textId = new JTextField();
         JTable table = new JTable();
-      lblBusqueda= new JLabel();
-      btnAdd = new JButton("Actualizar");
+        lblBusqueda= new JLabel();
+        btnAdd = new JButton("Actualizar");
         lblBusqueda.setText("Buscar:");
         JFrame fram1 = new JFrame("Actualizar Cancha");
         // create a table model and set a Column Identifiers to this model
-        Object[] columns = {"Lista de Canchas"};
+        Object[] columns = {"Número","Descripción","m2", "Precio"};
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
 
@@ -110,20 +110,26 @@ public class ActualizarCancha {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
+                String temp="";
                 ArrayList<String> canchaActualizada = new ArrayList<String>();
                 for (int i = 0 ; i < table.getRowCount(); i++) //realiza un barrido por filas.
                 {
                     for (int j = 0; j < table.getColumnCount(); j++) //realiza un barrido por columnas.
                     {
-                        canchaActualizada.add((String) (table.getValueAt(i, j)+"\n"));
+                        if(j!=table.getColumnCount()-1) {
+                            temp += ((String) (table.getValueAt(i, j) + ";"));
+                        }else{
+                            temp += ((String) (table.getValueAt(i, j) ));
+                        }
 
                     }
 
+                    temp+=("\n");
                 }
-
-                FunCanchaKt.ActualizarCancha("\n"+canchaActualizada.toString().replaceAll("[,| \\[ | \\] ]","").trim());}
+                canchaActualizada.add(temp);
+                FunCanchaKt.ActualizarCancha("\n"+canchaActualizada.toString().replaceAll("[,|\\[|\\]]","").trim());}
         });
+
 
     }
 }

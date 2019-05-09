@@ -73,7 +73,7 @@ public class EliminarReserva{
 
         JFrame fram1 = new JFrame("Eliminar Reserva");
         // create a table model and set a Column Identifiers to this model
-        Object[] columns = {"Lista de Reservas"};
+        Object[] columns = {"Cliente","Inicio","Fin","Precio","Cancha"};
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columns);
 
@@ -140,18 +140,25 @@ public class EliminarReserva{
                     JOptionPane.showMessageDialog(null, "No Selecciono Ninguna Fila", "Aviso", JOptionPane.ERROR_MESSAGE);
                 }
 
-
+                String temp="";
                 for (int i = 0 ; i < table.getRowCount(); i++) //realiza un barrido por filas.
                 {
                     for (int j = 0; j < table.getColumnCount(); j++) //realiza un barrido por columnas.
                     {
-                        reservaEliminada.add((String) (table.getValueAt(i, j)+"\n"));
-
+                        if(j!=table.getColumnCount()-1) {
+                            temp += ((String) (table.getValueAt(i, j) + ";"));
+                        }else{
+                            temp += ((String) (table.getValueAt(i, j) ));
+                        }
                     }
-
+                    if(i!=table.getRowCount()-1) {
+                        temp += "\n";
+                    }else{
+                        temp+="";
+                    }
                 }
-
-                FunReservaKt.eliminarReserva("\n"+reservaEliminada.toString().replaceAll("[,| \\[ | \\] ]",""));  }
+                reservaEliminada.add(temp);
+                FunReservaKt.eliminarReserva("\n"+reservaEliminada.toString().replaceAll("[,|\\[|\\]]","").trim());  }
         });
     }
 }

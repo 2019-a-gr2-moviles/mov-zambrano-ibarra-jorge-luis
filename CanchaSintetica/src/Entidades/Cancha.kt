@@ -12,6 +12,6 @@ class Cancha (var numeroCancha:Int, var descripcion:String,  var metroCuadrados:
 
 
     override fun toString(): String {
-        return "Número:  ${numeroCancha} Desc:  ${descripcion} Metros Cuadrados:  $metroCuadrados Precio:  $precio "
+        return "${numeroCancha};${descripcion};$metroCuadrados;$precio"
     }
 }
