@@ -16,7 +16,7 @@ public class Cliente {
             public void actionPerformed(ActionEvent actionEvent) {
                 fram1 = new JFrame("Ingresar Cliente");
                 fram1.setContentPane(new IngresarCliente().panel1);
-                fram1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                fram1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 fram1.setSize(400,400);
                 fram1.setResizable(false);
                 fram1.setLocationRelativeTo(null);
@@ -47,7 +47,7 @@ public class Cliente {
 
         fram1 = new JFrame("Cliente");
         fram1.setContentPane(new Cliente().panel1);
-        fram1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fram1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         fram1.setSize(400,400);
         fram1.setResizable(false);
         fram1.setLocationRelativeTo(null);

@@ -28,7 +28,7 @@ public class IngresarCliente {
     public static void llenar(){
         fram1 = new JFrame("Ingresar Cliente");
         fram1.setContentPane(new IngresarCliente().panel1);
-        fram1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        fram1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         fram1.setSize(400,400);
         fram1.setResizable(false);
         fram1.setLocationRelativeTo(null);

@@ -72,7 +72,7 @@ public class BuscarCliente {
 
         fram1.add(textId);
         fram1.add(lblBusqueda);
-        fram1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        fram1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         fram1.setSize(1000,800);
         fram1.setResizable(false);
         fram1.setLocationRelativeTo(null);

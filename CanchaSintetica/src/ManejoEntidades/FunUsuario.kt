@@ -23,7 +23,7 @@ fun ingresarCliente(cedula:String,nombre:String,telefono:String,direccion:String
 
 
     try {
-        archivoCliente.createNewFile()//Si y solo si archivo no existe
+        archivoCliente.createNewFile()
         writer = FileWriter(archivoCliente, true)
         writer.append(clienteList.toString().replace("[,|\\[|\\]]".toRegex(), ""))
         JOptionPane.showMessageDialog(null,"Guardado")
@@ -50,7 +50,7 @@ fun listaCliente ():Unit {
         temp=  bf.readLine()+"\n"
         tempSplit=temp.split(";")
 
-        BuscarCliente.model.addRow(tempSplit.stream().toArray()) //guardado el texto del archivo
+        BuscarCliente.model.addRow(tempSplit.stream().toArray())
     }
 
 }
@@ -64,7 +64,7 @@ fun listaClienteAct ():Unit {
         temp=  bf.readLine()+"\n"
         tempSplit=temp.split(";")
 
-        ActualizarCliente.model.addRow(tempSplit.stream().toArray()) //guardado el texto del archivo
+        ActualizarCliente.model.addRow(tempSplit.stream().toArray())
     }
 
 }
@@ -81,7 +81,7 @@ fun listaClienteEli ():Unit {
         temp=  bf.readLine()+"\n"
         tempSplit=temp.split(";")
 
-        EliminarCliente.model.addRow(tempSplit.stream().toArray()) //guardado el texto del archivo
+        EliminarCliente.model.addRow(tempSplit.stream().toArray())
     }
 
 
@@ -100,7 +100,7 @@ fun actualizarCliente ( clienteActualizado:String):Unit {
 
 
     try {
-        archivo.createNewFile()//Si y solo si archivo no existe
+        archivo.createNewFile()
         writer = FileWriter(archivoCliente, true)
         writer.append(clienteActualizado.replace("[\\[|\\]]","")+"\n")
 
@@ -131,7 +131,7 @@ fun eliminarClieinte ( clienteEliminado:String):Unit {
 
 
     try {
-        archivoCliente.createNewFile()//Si y solo si archivo no existe
+        archivoCliente.createNewFile()
         writer = FileWriter(archivoCliente, true)
         writer.append(clienteEliminado.replace("[\\[|\\]]","")+"\n")
 
