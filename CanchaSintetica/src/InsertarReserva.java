@@ -48,7 +48,7 @@ public class InsertarReserva {
         fram1 = new JFrame("Ingresar Reserva");
         fram1.add(txtCliente);
         fram1.setContentPane(new InsertarReserva().panel1);
-        fram1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        fram1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         fram1.setSize(400,400);
         fram1.setResizable(true);
         fram1.setLocationRelativeTo(null);

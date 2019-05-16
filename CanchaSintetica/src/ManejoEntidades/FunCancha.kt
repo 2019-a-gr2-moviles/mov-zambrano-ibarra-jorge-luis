@@ -42,7 +42,7 @@ fun IngresarCancha (indiceCancha: Int, descipcionIng:String, metrosCuadradosIng:
 
 
     try {
-        archivo.createNewFile()//Si y solo si archivo no existe
+        archivo.createNewFile()
         writer = FileWriter(archivo, true)
         writer.append(canchaList.toString().replace("[\\[|\\]]".toRegex(), ""))
         JOptionPane.showMessageDialog(null,"Guardado")
@@ -73,7 +73,7 @@ fun eliminarCancha ( canchaEliminada:String):Unit {
 
 
     try {
-        archivo.createNewFile()//Si y solo si archivo no existe
+        archivo.createNewFile()
         writer = FileWriter(archivo, true)
         writer.append(canchaEliminada.replace("[,|\\[|\\]]","")+"\n")
         JOptionPane.showMessageDialog(null,"Eliminado")
@@ -105,7 +105,7 @@ fun ActualizarCancha ( canchaActualizada:String):Unit {
 
 
     try {
-        archivo.createNewFile()//Si y solo si archivo no existe
+        archivo.createNewFile()
         writer = FileWriter(archivo, true)
         writer.append(canchaActualizada.replace("[,|\\[|\\]]","")+"\n")
         JOptionPane.showMessageDialog(null,"Actualizado")
@@ -140,8 +140,7 @@ fun listaCancha ():Unit {
 
         BuscarCancha.model.addRow(tempSplit.stream().toArray())
 
-        // canchaList.fill(temp);
-        //BuscarCancha.model.addRow(canchaList) //guardado el texto del archivo
+
     }
 
 
@@ -161,8 +160,7 @@ fun listaCanchaAct ():Unit {
 
         ActualizarCancha.model.addRow(tempSplit.stream().toArray())
 
-        // canchaList.fill(temp);
-        //BuscarCancha.model.addRow(canchaList) //guardado el texto del archivo
+
     }
 
 
@@ -181,8 +179,7 @@ fun listaCanchaEli ():Unit {
 
         EliminarCancha.model.addRow(tempSplit.stream().toArray())
 
-        // canchaList.fill(temp);
-        //BuscarCancha.model.addRow(canchaList) //guardado el texto del archivo
+
     }
 
 

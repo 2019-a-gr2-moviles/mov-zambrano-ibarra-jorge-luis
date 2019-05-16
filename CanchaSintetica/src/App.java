@@ -16,7 +16,7 @@ public class App {
             public void actionPerformed(ActionEvent actionEvent) {
                 Empleado.fram1 = new JFrame("Menú");
                 Empleado.fram1.setContentPane(new Empleado().panelEmpleado);
-                Empleado.fram1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                Empleado.fram1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 Empleado.fram1.setSize(400,400);
                 Empleado.fram1.setResizable(false);
                 Empleado.fram1.setLocationRelativeTo(null);
@@ -28,7 +28,7 @@ public class App {
             public void actionPerformed(ActionEvent actionEvent) {
                 Cliente.fram1 = new JFrame("Ingresar Cliente");
                 Cliente.fram1.setContentPane(new Cliente().panel1);
-                Cliente.fram1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                Cliente.fram1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 Cliente.fram1.setSize(400,400);
                 Cliente.fram1.setResizable(false);
                 Cliente.fram1.setLocationRelativeTo(null);
@@ -41,7 +41,7 @@ public class App {
             public void actionPerformed(ActionEvent actionEvent) {
                 Reserva.fram1= new JFrame("Reserva");
                 Reserva.fram1.setContentPane(new Reserva().panel1);
-                Reserva.fram1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                Reserva.fram1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 Reserva.fram1.setSize(400,400);
                 Reserva.fram1.setResizable(false);
                 Reserva.fram1.setLocationRelativeTo(null);

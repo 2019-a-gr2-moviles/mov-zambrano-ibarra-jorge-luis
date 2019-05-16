@@ -32,7 +32,7 @@ public class IngresarCancha {
     public  static void main(String []args){
         fram1 = new JFrame("Ingresar Cancha");
         fram1.setContentPane(new IngresarCancha().panel2);
-        fram1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        fram1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         fram1.setSize(400,400);
         fram1.setResizable(false);
         fram1.setLocationRelativeTo(null);

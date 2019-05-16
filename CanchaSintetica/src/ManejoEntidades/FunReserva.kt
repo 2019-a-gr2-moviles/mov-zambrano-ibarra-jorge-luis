@@ -42,7 +42,7 @@ fun IngresarReserva (cedulaCliente:String,fechainicial:String,fechaFinal:String,
 
 
     try {
-        archivoReserva.createNewFile()//Si y solo si archivo no existe
+        archivoReserva.createNewFile()
         writer = FileWriter(archivoReserva, true)
         writer.append(reservaList.toString().replace("[,|\\[|\\]]".toRegex(), ""))
         JOptionPane.showMessageDialog(null,"Guardado")
@@ -73,7 +73,7 @@ fun eliminarReserva ( reservaEliminada:String):Unit {
 
 
     try {
-        archivoReserva.createNewFile()//Si y solo si archivo no existe
+        archivoReserva.createNewFile()
         writer = FileWriter(archivoReserva, true)
         writer.append(reservaEliminada.replace("[\\[|\\]]","")+"\n")
 
@@ -105,7 +105,7 @@ fun actualizarReserva ( reservaActualizada:String):Unit {
 
 
     try {
-        archivoReserva.createNewFile()//Si y solo si archivo no existe
+        archivoReserva.createNewFile()
         writer = FileWriter(archivoReserva, true)
         writer.append(reservaActualizada.replace("[\\[|\\]]","")+"\n")
         JOptionPane.showMessageDialog(null,"Actualizado")
@@ -138,7 +138,7 @@ fun listaReserva ():Unit {
     while (bf.readLine() != null) {
         temp=  bf.readLine()+"\n"
         tempSplit=temp.split(";")
-        BuscarReserva.model.addRow(tempSplit.stream().toArray()) //guardado el texto del archivo
+        BuscarReserva.model.addRow(tempSplit.stream().toArray())
     }
 
 
@@ -156,7 +156,7 @@ fun listaReservaAct ():Unit {
     while (bf.readLine() != null) {
         temp=  bf.readLine()+"\n"
         tempSplit=temp.split(";")
-        ActualizarReserva.model.addRow(tempSplit.stream().toArray()) //guardado el texto del archivo
+        ActualizarReserva.model.addRow(tempSplit.stream().toArray())
     }
 
 
@@ -174,7 +174,7 @@ fun listaReservaEli ():Unit {
     while (bf.readLine() != null) {
         temp=  bf.readLine()+"\n"
         tempSplit=temp.split(";")
-        EliminarReserva.model.addRow(tempSplit.stream().toArray()) //guardado el texto del archivo
+        EliminarReserva.model.addRow(tempSplit.stream().toArray())
     }
 
 
