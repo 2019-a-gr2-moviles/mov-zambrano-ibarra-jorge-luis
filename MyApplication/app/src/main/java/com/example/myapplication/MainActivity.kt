@@ -33,7 +33,18 @@ class MainActivity : AppCompatActivity() {
             this,
             ActividadDos::class.java
         )
+        intent.putExtra("NOMBRE", "Jorge")
+        intent.putExtra("edad",29)
         startActivity(intent)
+    }
+
+    override fun onBackPressed() {
+
+        val intent = Intent(Intent.ACTION_MAIN)
+        intent.addCategory(Intent.CATEGORY_HOME)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+        finish()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
