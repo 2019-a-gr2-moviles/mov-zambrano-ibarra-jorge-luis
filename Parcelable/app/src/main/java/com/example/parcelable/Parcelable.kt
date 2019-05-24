@@ -1,9 +1,9 @@
-package com.example.dr.myapplication
+package com.example.parcelable
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.myapplication.R
+import com.example.parcelable.R
 
 class Parcelable : AppCompatActivity() {
 
