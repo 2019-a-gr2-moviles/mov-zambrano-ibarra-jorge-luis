@@ -31,7 +31,7 @@ class ListViewActivity : AppCompatActivity() {
 
             Snackbar
                 .make(view, "Gracias por crear un nuevo usuario", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
+                .setAction("Action", null).show()
 
 
 
