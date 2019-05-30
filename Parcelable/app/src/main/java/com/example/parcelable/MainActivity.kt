@@ -11,8 +11,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        btn_parcelabel.setOnClickListener(){
+        btn_parcelabel.setOnClickListener() {
             irAParcelable()
+        }
+        btn_adapter.setOnClickListener() {
+            irAListView()
         }
     }
     fun irAParcelable() {
@@ -32,6 +35,13 @@ class MainActivity : AppCompatActivity() {
         intentExplicito.putExtra("mascota", cachetes)
 
 
+        startActivity(intentExplicito)
+    }
+    fun irAListView(){
+        val intentExplicito = Intent(
+            this,
+            ListViewActivity::class.java
+        )
         startActivity(intentExplicito)
     }
 }
