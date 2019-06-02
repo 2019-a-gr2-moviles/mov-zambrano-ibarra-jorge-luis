@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_ingresar.*
+import kotlinx.android.synthetic.main.activity_ingresar.txtNombre
+import kotlinx.android.synthetic.main.activity_main.*
 
 class IngresarActivity : AppCompatActivity() {
     var usuario:String = ""
@@ -38,9 +40,15 @@ class IngresarActivity : AppCompatActivity() {
             campeonActual = camp
         )
         BDEquipoFutbol.agregarEquipo(equipo)
-        Toast.makeText(this, "Ingreso exitoso "+usuario, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg)+" " +usuario, Toast.LENGTH_SHORT).show()
         val retorno = Intent(this, MenuActivity::class.java)
         retorno.putExtra("usuario", usuario)
         startActivity(retorno)
+    }
+    override fun onBackPressed() {
+
+        val intentMenu = Intent(this, MenuActivity::class.java)
+        intentMenu.putExtra("usuario", usuario)
+        startActivity(intentMenu)
     }
 }

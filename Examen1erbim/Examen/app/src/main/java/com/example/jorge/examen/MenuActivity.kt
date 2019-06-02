@@ -3,6 +3,7 @@ package com.example.jorge.examen
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : AppCompatActivity() {
@@ -25,6 +26,11 @@ class MenuActivity : AppCompatActivity() {
         val intentCrearEquipo = Intent(this, IngresarActivity::class.java)
         intentCrearEquipo.putExtra("usuario", usuario)
         startActivity(intentCrearEquipo)
+    }
+    override fun onBackPressed() {
+        val intentMenu = Intent(this, MainActivity::class.java)
+
+        startActivity(intentMenu)
     }
 
 }

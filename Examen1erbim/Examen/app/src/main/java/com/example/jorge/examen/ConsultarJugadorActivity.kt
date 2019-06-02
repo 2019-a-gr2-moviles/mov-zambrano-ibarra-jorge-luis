@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_consultar_jugador.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class ConsultarJugadorActivity : AppCompatActivity() {
     var padreId : Int = 0
     var usuario :String = "";
     var equipoRespaldo : EquipoFutbol? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         usuario = intent.getStringExtra("usuario").toString()
@@ -32,5 +34,14 @@ class ConsultarJugadorActivity : AppCompatActivity() {
             intentJugadorSeleccionado.putExtra("EquipoRespaldo", equipoRespaldo)
             startActivity(intentJugadorSeleccionado)
         }
+    }
+    override fun onBackPressed() {
+
+
+        val intentMenu = Intent(this, ActualizarActivity::class.java)
+        intentMenu.putExtra("Equipo", equipoRespaldo)
+        intentMenu.putExtra("usuario", usuario)
+
+        startActivity(intentMenu)
     }
 }

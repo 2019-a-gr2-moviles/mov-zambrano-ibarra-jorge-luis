@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_ingresar_jugador.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class IngresarJugadorActivity : AppCompatActivity() {
     var padreId : Int = 0
@@ -31,10 +32,18 @@ class IngresarJugadorActivity : AppCompatActivity() {
             equipoFutbolId = padreId
         )
         BDJugador.agregarJugador(jugador)
-        Toast.makeText(this, "Jugador creado exitosamente "+usuario, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msg)+" "+usuario, Toast.LENGTH_SHORT).show()
         val retorno = Intent(this, ActualizarActivity::class.java)
         retorno.putExtra("usuario", usuario)
         retorno.putExtra("Equipo", equipoRespaldo)
         startActivity(retorno)
+    }
+    override fun onBackPressed() {
+
+        val intentMenu = Intent(this, ActualizarActivity::class.java)
+        intentMenu.putExtra("Equipo", equipoRespaldo)
+        intentMenu.putExtra("usuario", usuario)
+
+        startActivity(intentMenu)
     }
 }

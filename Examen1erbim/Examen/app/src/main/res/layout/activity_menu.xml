@@ -8,7 +8,7 @@
         tools:context="com.example.jorge.examen.MenuActivity">
 
     <Button
-            android:text="Equipo"
+            android:text="@string/btnEquipo"
             android:layout_width="128dp"
             android:layout_height="66dp"
             android:id="@+id/btnEquipo" android:layout_marginTop="236dp"
@@ -16,12 +16,12 @@
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.498"/>
     <Button
-            android:text="Crear Equipo"
+            android:text="@string/btnCrearEquipo"
             android:layout_width="128dp"
             android:layout_height="66dp"
             android:id="@+id/btnCrearEquipo" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/btnEquipo" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.174"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.063"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="@+id/btnEquipo"
-            app:layout_constraintStart_toStartOf="@+id/btnEquipo" app:layout_constraintHorizontal_bias="0.469"/>
+            app:layout_constraintStart_toStartOf="@+id/btnEquipo" app:layout_constraintHorizontal_bias="0.0"/>
 </android.support.constraint.ConstraintLayout>

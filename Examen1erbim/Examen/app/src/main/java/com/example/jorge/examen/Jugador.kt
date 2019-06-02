@@ -24,7 +24,7 @@ class Jugador(var id:Int?,
     }
 
     override fun toString(): String {
-        return "Número Camiseta: ${numeroCamiseta} Nombre Jugador: ${nombreCompletoJugador} Poder: ${poderEspecialDos} Fecha Ingreso:${fechaIngresoEquipo} Goles:${goles}"
+       return "${nombreCompletoJugador}"
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {

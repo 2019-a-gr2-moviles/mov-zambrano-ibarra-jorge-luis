@@ -12,10 +12,10 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/txtnumeroCamiseta" android:layout_marginTop="32dp"
+            android:id="@+id/txtnumeroCamiseta"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.813"/>
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="12dp"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,19 +52,22 @@
             app:layout_constraintHorizontal_bias="0.0"/>
     <Button
             android:text="@string/btnActualizarJugador"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:id="@+id/btnActualizarJugador" app:layout_constraintStart_toStartOf="@+id/txtGoles"
-            app:layout_constraintEnd_toEndOf="@+id/txtGoles" android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/txtGoles" app:layout_constraintHorizontal_bias="0.504"/>
+            android:layout_width="165dp"
+            android:layout_height="36dp"
+            android:id="@+id/btnActualizarJugador"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="@+id/txtnumeroCamiseta"
+            app:layout_constraintStart_toEndOf="@+id/txtnumeroCamiseta" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
     <Button
             android:text="@string/btnEliminarJugador"
-            android:layout_width="178dp"
-            android:layout_height="45dp"
-            android:id="@+id/btnEliminarJugador" android:layout_marginTop="8dp"
+            android:layout_width="165dp"
+            android:layout_height="35dp"
+            android:id="@+id/btnEliminarJugador"
+            app:layout_constraintStart_toStartOf="@+id/btnActualizarJugador"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/btnActualizarJugador"
-            app:layout_constraintEnd_toEndOf="@+id/btnActualizarJugador"
-            app:layout_constraintStart_toStartOf="@+id/btnActualizarJugador"/>
+            app:layout_constraintEnd_toEndOf="@+id/btnActualizarJugador"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,10 +81,11 @@
             android:text="@string/txtNumeroCamiseta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView" android:layout_marginTop="8dp"
+            android:id="@+id/textView"
             app:layout_constraintTop_toTopOf="@+id/txtnumeroCamiseta" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/txtnumeroCamiseta"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.562"
+            android:layout_marginTop="16dp"/>
     <TextView
             android:text="@string/txtNombreCamiseta"
             android:layout_width="wrap_content"
@@ -108,7 +112,7 @@
             app:layout_constraintEnd_toStartOf="@+id/txtpoderEspecialDos" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             tools:text="@string/txtPoderEspecial"
-            android:layout_marginTop="12dp" app:layout_constraintHorizontal_bias="0.347"/>
+            android:layout_marginTop="12dp" app:layout_constraintHorizontal_bias="0.442"/>
     <TextView
             android:text="@string/txtFenchaIngreso"
             android:layout_width="wrap_content"
@@ -125,5 +129,6 @@
             android:id="@+id/textView6" tools:text="@string/txtGoles"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="@+id/txtGoles"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/txtGoles"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.352"/>
 </android.support.constraint.ConstraintLayout>

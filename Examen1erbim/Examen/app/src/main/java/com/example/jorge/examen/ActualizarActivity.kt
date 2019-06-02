@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_actualizar.txtLiga
 import kotlinx.android.synthetic.main.activity_actualizar.txtNombre
 import kotlinx.android.synthetic.main.activity_actualizar.txtNumCopInter
 import kotlinx.android.synthetic.main.activity_ingresar.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class ActualizarActivity : AppCompatActivity() {
     var padreId : Int = 0
@@ -57,7 +58,7 @@ class ActualizarActivity : AppCompatActivity() {
             campeonActual = cam
         )
         BDEquipoFutbol.actualizarEquipo(actualizarEquipo)
-        Toast.makeText(this, "Actualización exitosa "+usuario, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msgActualizar)+" "+usuario, Toast.LENGTH_SHORT).show()
         val retorno = Intent(this, MenuActivity::class.java)
         retorno.putExtra("usuario", usuario)
         startActivity(retorno)
@@ -65,7 +66,7 @@ class ActualizarActivity : AppCompatActivity() {
 
     fun eliminarEquipo(){
         BDEquipoFutbol.eliminarEquipo(padreId);
-        Toast.makeText(this, "Eliminación exitosa "+usuario, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msgEliminar)+" "+usuario, Toast.LENGTH_SHORT).show()
         val retorno = Intent(this, MenuActivity::class.java)
         retorno.putExtra("usuario", usuario)
         startActivity(retorno)
@@ -119,5 +120,11 @@ class ActualizarActivity : AppCompatActivity() {
         val retorno = Intent(this, MenuActivity::class.java)
         retorno.putExtra("usuario", usuario)
         startActivity(retorno)
+    }
+    override fun onBackPressed() {
+
+        val intentMenu = Intent(this, ConsultarActivity::class.java)
+        intentMenu.putExtra("usuario", usuario)
+        startActivity(intentMenu)
     }
 }

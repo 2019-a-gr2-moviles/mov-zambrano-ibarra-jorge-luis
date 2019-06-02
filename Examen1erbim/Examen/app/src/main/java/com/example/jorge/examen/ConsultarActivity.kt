@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_consultar.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class ConsultarActivity : AppCompatActivity() {
     var usuario :String = "";
@@ -29,5 +30,11 @@ class ConsultarActivity : AppCompatActivity() {
         }
 
 
+    }
+    override fun onBackPressed() {
+
+        val intentMenu = Intent(this, MenuActivity::class.java)
+        intentMenu.putExtra("usuario", usuario)
+        startActivity(intentMenu)
     }
 }

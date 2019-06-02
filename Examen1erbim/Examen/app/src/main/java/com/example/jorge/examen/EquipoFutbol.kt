@@ -1,10 +1,17 @@
 package com.example.jorge.examen
 
+import android.app.PendingIntent.getActivity
+import android.content.Context
+import android.content.res.Resources
 import android.os.Parcel
 import android.os.Parcelable
+import android.provider.Settings.System.getString
+import android.support.v4.content.res.TypedArrayUtils.getText
+
 
 
 class EquipoFutbol(
+
     var id:Int?,
     var nombre:String,
     var liga:String,
@@ -22,8 +29,9 @@ class EquipoFutbol(
     ) {
     }
 
+
     override fun toString(): String {
-        return "NOMBRE: ${nombre} LIGA: ${liga} FECHA CREACION: ${fechaCreacion} NUMERO COPAS:${numeroCopasInternacionales} CAMPEON ACTUAL:${campeonActual}"
+        return "${nombre}";
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {

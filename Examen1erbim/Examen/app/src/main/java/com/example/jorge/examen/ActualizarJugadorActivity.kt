@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_actualizar_jugador.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class ActualizarJugadorActivity : AppCompatActivity() {
     var id :Int = 0;
@@ -41,7 +42,7 @@ class ActualizarJugadorActivity : AppCompatActivity() {
             equipoFutbolId = idPadre
         )
         BDJugador.actualizarJugador(jugador)
-        Toast.makeText(this, "Actualización jugador exitosa "+usuario, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msgActualizar)+" "+usuario, Toast.LENGTH_SHORT).show()
         val retorno = Intent(this, ActualizarActivity::class.java)
         retorno.putExtra("usuario", usuario)
         retorno.putExtra("Equipo", equipoRespaldo)
@@ -50,10 +51,20 @@ class ActualizarJugadorActivity : AppCompatActivity() {
 
     fun eliminarJugador(){
         BDJugador.eliminarJugador(id)
-        Toast.makeText(this, "Eliminación jugador exitosa "+usuario, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.msgEliminar)+" "+usuario, Toast.LENGTH_SHORT).show()
         val retorno = Intent(this, ActualizarActivity::class.java)
         retorno.putExtra("usuario", usuario)
         retorno.putExtra("Equipo", equipoRespaldo)
         startActivity(retorno)
+    }
+    override fun onBackPressed() {
+
+
+        val intentMenu = Intent(this, ConsultarJugadorActivity::class.java)
+        intentMenu.putExtra("usuario", usuario)
+
+        intentMenu.putExtra("padreId", idPadre)
+        intentMenu.putExtra("EquipoRespaldo", equipoRespaldo)
+        startActivity(intentMenu)
     }
 }

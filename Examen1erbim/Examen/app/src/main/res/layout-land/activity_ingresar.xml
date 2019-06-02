@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+            android:layout_height="1070px" android:layout_width="1925px">
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -12,7 +15,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/txtLiga" android:layout_marginTop="8dp"
+            android:id="@+id/txtLiga"
             app:layout_constraintTop_toBottomOf="@+id/txtNombre"
             app:layout_constraintEnd_toEndOf="@+id/txtNombre"
             app:layout_constraintStart_toStartOf="@+id/txtNombre" android:layout_marginStart="3dp"
@@ -23,9 +26,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnAceptar"
             app:layout_constraintStart_toStartOf="@+id/checkBox"
-            android:layout_marginTop="56dp"
             app:layout_constraintTop_toTopOf="@+id/checkBox" app:layout_constraintEnd_toEndOf="@+id/checkBox"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="40dp"/>
     <Button
             android:text="@string/btnCancelar"
             android:layout_width="wrap_content"
@@ -33,14 +35,13 @@
             android:id="@+id/btnCancelar"
             app:layout_constraintStart_toEndOf="@+id/btnAceptar"
             android:layout_marginStart="8dp"
-            app:layout_constraintTop_toTopOf="@+id/btnAceptar" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.157"/>
+            app:layout_constraintTop_toTopOf="@+id/btnAceptar"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/txtNombre" android:layout_marginTop="40dp"
+            android:id="@+id/txtNombre" android:layout_marginTop="36dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:hint="@string/txtNombreEqueip"/>
@@ -51,16 +52,16 @@
             android:ems="10"
             android:id="@+id/txtNumCopInter"
             android:hint="@string/txtNumeroCopas"
-            app:layout_constraintStart_toStartOf="@+id/dateFechCreac" android:layout_marginTop="52dp"
+            app:layout_constraintStart_toStartOf="@+id/dateFechCreac" android:layout_marginTop="44dp"
             app:layout_constraintTop_toTopOf="@+id/dateFechCreac"
-            app:layout_constraintEnd_toEndOf="@+id/dateFechCreac"/>
+            app:layout_constraintEnd_toEndOf="@+id/dateFechCreac" app:layout_constraintHorizontal_bias="0.0"/>
     <CheckBox
             android:text="@string/chkCampeonActual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkBox" app:layout_constraintStart_toStartOf="@+id/txtNumCopInter"
             app:layout_constraintEnd_toEndOf="@+id/txtNumCopInter"
-            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="52dp"
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="44dp"
             app:layout_constraintTop_toBottomOf="@+id/dateFechCreac"/>
     <EditText
             android:layout_width="wrap_content"
@@ -69,6 +70,7 @@
             android:ems="10"
             android:id="@+id/dateFechCreac"
             app:layout_constraintStart_toStartOf="@+id/txtLiga" app:layout_constraintEnd_toEndOf="@+id/txtLiga"
-            android:layout_marginTop="68dp" app:layout_constraintTop_toBottomOf="@+id/txtNombre"
-            app:layout_constraintHorizontal_bias="1.0" android:hint="@string/txtNombreFechaCreacio"/>
+            android:layout_marginTop="44dp" app:layout_constraintTop_toBottomOf="@+id/txtNombre"
+            app:layout_constraintHorizontal_bias="0.0" android:hint="@string/txtNombreFechaCreacio"/>
 </android.support.constraint.ConstraintLayout>
+</ScrollView>
