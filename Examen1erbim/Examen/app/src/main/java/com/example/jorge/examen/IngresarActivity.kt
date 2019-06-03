@@ -41,7 +41,7 @@ class IngresarActivity : AppCompatActivity() {
         )
         BDEquipoFutbol.agregarEquipo(equipo)
         Toast.makeText(this, getString(R.string.msg)+" " +usuario, Toast.LENGTH_SHORT).show()
-        val retorno = Intent(this, MenuActivity::class.java)
+        val retorno = Intent(this, ConsultarActivity::class.java)
         retorno.putExtra("usuario", usuario)
         startActivity(retorno)
     }

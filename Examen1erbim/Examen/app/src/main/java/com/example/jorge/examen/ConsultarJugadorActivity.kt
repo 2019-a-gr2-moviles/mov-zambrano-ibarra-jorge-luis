@@ -18,7 +18,9 @@ class ConsultarJugadorActivity : AppCompatActivity() {
         usuario = intent.getStringExtra("usuario").toString()
         equipoRespaldo = intent.getParcelableExtra<EquipoFutbol>("EquipoRespaldo")
         padreId = intent.getIntExtra("padreId", -1)
+        val equipo=intent.getParcelableExtra<EquipoFutbol>("EquipoRespaldo")
         setContentView(R.layout.activity_consultar_jugador)
+        val nombre=equipo.nombre.toString();
         val adapter = ArrayAdapter<Jugador>(
             this,
             android.R.layout.simple_list_item_1,
@@ -34,14 +36,12 @@ class ConsultarJugadorActivity : AppCompatActivity() {
             intentJugadorSeleccionado.putExtra("EquipoRespaldo", equipoRespaldo)
             startActivity(intentJugadorSeleccionado)
         }
+        textView12.setText(getString(R.string.nombreJugador)+": "+nombre)
     }
     override fun onBackPressed() {
-
-
         val intentMenu = Intent(this, ActualizarActivity::class.java)
         intentMenu.putExtra("Equipo", equipoRespaldo)
         intentMenu.putExtra("usuario", usuario)
-
         startActivity(intentMenu)
     }
 }

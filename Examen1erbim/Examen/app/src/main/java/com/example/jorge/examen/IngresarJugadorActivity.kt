@@ -33,16 +33,18 @@ class IngresarJugadorActivity : AppCompatActivity() {
         )
         BDJugador.agregarJugador(jugador)
         Toast.makeText(this, getString(R.string.msg)+" "+usuario, Toast.LENGTH_SHORT).show()
-        val retorno = Intent(this, ActualizarActivity::class.java)
+        val retorno = Intent(this, ConsultarJugadorActivity::class.java)
         retorno.putExtra("usuario", usuario)
-        retorno.putExtra("Equipo", equipoRespaldo)
+        retorno.putExtra("padreId", padreId)
+        retorno.putExtra("EquipoRespaldo", equipoRespaldo)
         startActivity(retorno)
     }
     override fun onBackPressed() {
 
         val intentMenu = Intent(this, ActualizarActivity::class.java)
-        intentMenu.putExtra("Equipo", equipoRespaldo)
         intentMenu.putExtra("usuario", usuario)
+
+        intentMenu.putExtra("Equipo", equipoRespaldo)
 
         startActivity(intentMenu)
     }
