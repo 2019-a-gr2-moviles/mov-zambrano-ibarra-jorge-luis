@@ -59,7 +59,7 @@ class ActualizarActivity : AppCompatActivity() {
         )
         BDEquipoFutbol.actualizarEquipo(actualizarEquipo)
         Toast.makeText(this, getString(R.string.msgActualizar)+" "+usuario, Toast.LENGTH_SHORT).show()
-        val retorno = Intent(this, MenuActivity::class.java)
+        val retorno = Intent(this, ConsultarActivity::class.java)
         retorno.putExtra("usuario", usuario)
         startActivity(retorno)
     }
@@ -67,7 +67,7 @@ class ActualizarActivity : AppCompatActivity() {
     fun eliminarEquipo(){
         BDEquipoFutbol.eliminarEquipo(padreId);
         Toast.makeText(this, getString(R.string.msgEliminar)+" "+usuario, Toast.LENGTH_SHORT).show()
-        val retorno = Intent(this, MenuActivity::class.java)
+        val retorno = Intent(this, ConsultarActivity::class.java)
         retorno.putExtra("usuario", usuario)
         startActivity(retorno)
     }

@@ -43,18 +43,20 @@ class ActualizarJugadorActivity : AppCompatActivity() {
         )
         BDJugador.actualizarJugador(jugador)
         Toast.makeText(this, getString(R.string.msgActualizar)+" "+usuario, Toast.LENGTH_SHORT).show()
-        val retorno = Intent(this, ActualizarActivity::class.java)
+        val retorno = Intent(this, ConsultarJugadorActivity::class.java)
         retorno.putExtra("usuario", usuario)
-        retorno.putExtra("Equipo", equipoRespaldo)
+        retorno.putExtra("padreId", idPadre)
+        retorno.putExtra("EquipoRespaldo", equipoRespaldo)
         startActivity(retorno)
     }
 
     fun eliminarJugador(){
         BDJugador.eliminarJugador(id)
         Toast.makeText(this, getString(R.string.msgEliminar)+" "+usuario, Toast.LENGTH_SHORT).show()
-        val retorno = Intent(this, ActualizarActivity::class.java)
+        val retorno = Intent(this, ConsultarJugadorActivity::class.java)
         retorno.putExtra("usuario", usuario)
-        retorno.putExtra("Equipo", equipoRespaldo)
+        retorno.putExtra("padreId", idPadre)
+        retorno.putExtra("EquipoRespaldo", equipoRespaldo)
         startActivity(retorno)
     }
     override fun onBackPressed() {
@@ -62,7 +64,6 @@ class ActualizarJugadorActivity : AppCompatActivity() {
 
         val intentMenu = Intent(this, ConsultarJugadorActivity::class.java)
         intentMenu.putExtra("usuario", usuario)
-
         intentMenu.putExtra("padreId", idPadre)
         intentMenu.putExtra("EquipoRespaldo", equipoRespaldo)
         startActivity(intentMenu)
