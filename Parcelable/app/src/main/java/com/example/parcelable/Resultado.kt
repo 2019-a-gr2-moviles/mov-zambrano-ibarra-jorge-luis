@@ -15,14 +15,13 @@ class Resultado : AppCompatActivity() {
         btnResultado.setOnClickListener(){
             devolverRespuesta()
         }
-        btn_respuseta_propia.setOnClickListener(){
-            enviarIntentConRespuestaPropia()
-        }
+
     }
 
     fun enviarIntentConRespuestaPropia(){
         val intentPropio=Intent(this, Resultado::class.java)
         this.startActivityForResult(intentPropio,305)
+
 
     }
     fun devolverRespuesta(){

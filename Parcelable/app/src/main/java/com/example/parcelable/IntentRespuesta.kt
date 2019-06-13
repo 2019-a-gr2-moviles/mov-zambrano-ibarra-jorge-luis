@@ -16,8 +16,17 @@ class IntentRespuesta : AppCompatActivity() {
         btn_enviar_intent.setOnClickListener(){
             enviarIntentConRespuseta()
         }
-    }
+        btn_respuseta_propia.setOnClickListener(){
+            enviarIntentConRespuestaPropia()
+        }
 
+    }
+    fun enviarIntentConRespuestaPropia(){
+        val intentPropio=Intent(this, Resultado::class.java)
+        this.startActivityForResult(intentPropio,305)
+
+
+    }
     fun enviarIntentConRespuseta(){
         val intentConRespuseta= Intent(
             Intent.ACTION_PICK,
