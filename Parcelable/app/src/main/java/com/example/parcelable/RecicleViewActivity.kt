@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.widget.AdapterViewAnimator
 import kotlinx.android.synthetic.main.activity_recicle_view.*
 
@@ -27,5 +28,26 @@ class RecicleViewActivity : AppCompatActivity() {
 
 
 
+
+    }
+    fun iniciarRecylerView(
+        lista: List<Persona>,
+        actividad: RecicleViewActivity,
+        recycler_view: RecyclerView
+    ) {
+        val adaptadorPersona = AdaptadorPersona(
+            lista,
+            actividad,
+            recycler_view
+        )
+        recycler_view.adapter = adaptadorPersona
+        recycler_view.itemAnimator = DefaultItemAnimator()
+        recycler_view.layoutManager = LinearLayoutManager(actividad)
+
+        adaptadorPersona.notifyDataSetChanged()
+    }
+
+    fun cambiarNombreTextView(texto: String){
+        txv_titulo_rv.text=texto
     }
 }

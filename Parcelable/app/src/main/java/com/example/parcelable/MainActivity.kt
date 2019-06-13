@@ -13,9 +13,17 @@ class MainActivity : AppCompatActivity() {
         btn_rv.setOnClickListener{
             irARecyclerView()
         }
+        btnRespuesta.setOnClickListener(){
+            irARespuesta()
+        }
     }
     fun irARecyclerView(){
         val intentExplicito= Intent(this, RecicleViewActivity::class.java)
+        startActivity(intentExplicito)
+    }
+
+    fun irARespuesta(){
+        val intentExplicito= Intent(this, IntentRespuesta::class.java)
         startActivity(intentExplicito)
     }
 
