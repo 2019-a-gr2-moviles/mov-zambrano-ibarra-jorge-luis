@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TelegramChatRV</string>
+    <string name="username">Nombre Usuario</string>
+    <string name="join_chat">Unirse al Chat</string>
+    <string name="send">Enviar</string>
+    <string name="enter_message">Escribir Mensaje…</string>
+    <string name="appID">4414bbacc74adc</string>
+    <string name="apiKey">d4a82f3d607647346808256f19a7dd0650cde235</string>
+</resources>
