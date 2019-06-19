@@ -49,25 +49,46 @@ class MessagesAdapter(private val uid: String,
     }
     inner class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val messageText: TextView = itemView.findViewById(R.id.message_text)
+        var estadoLike:Boolean=false
+        var estadoFase:Boolean=false
+        var estadoglobal:Boolean=false
         var accionButton: Button= itemView.findViewById(R.id.btnLike) as Button
         var favButton: Button= itemView.findViewById(R.id.btnFav) as Button
         init{
+
             accionButton.setOnClickListener {
-                messageText.setTextColor(Color.RED)
-                messageText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.love, 0, 0, 0);
+                if (estadoLike == false) {
+                    messageText.setTextColor(Color.RED)
+                    messageText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.love, 0, 0, 0);
+                    estadoLike = true
+                    estadoFase=false
 
 
-
+                } else {
+                    messageText.setTextColor(Color.BLACK)
+                    messageText.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);4
+                    estadoLike = false
+                }
             }
-            favButton.setOnClickListener {
-                val orange= Color.rgb(255, 165, 0)
-                messageText.setTextColor(orange)
-                messageText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.star, 0, 0, 0);
 
+            favButton.setOnClickListener {
+                if (estadoFase == false) {
+                    val orange = Color.rgb(255, 165, 0)
+                    messageText.setTextColor(orange)
+                    messageText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.star, 0, 0, 0);
+                    estadoFase = true
+                    estadoLike=false
+                }
+                else {
+                    messageText.setTextColor(Color.BLACK)
+                    messageText.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);4
+                    estadoFase=false
+                }
 
 
             }
         }
+
         fun bind(message: BaseMessage) {
             if (message is TextMessage) {
                 messageText.text = message.text
