@@ -31,6 +31,7 @@ class Contactos : AppCompatActivity() {
 
 
     }
+    //
     fun iniciarRecylerView(
         lista: List<Persona>,
         actividad: Contactos,
