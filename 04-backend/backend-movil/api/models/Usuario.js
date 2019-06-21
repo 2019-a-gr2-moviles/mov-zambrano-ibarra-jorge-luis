@@ -55,7 +55,17 @@ module.exports = {
       type: 'string',
       isEmail:true
       
+    },
+    //Configuración del papá
+    serviciosDeUsuario: {//nombre de atributo de la relación
+      collection: 'Servicio', //nombre del modelo a relacionar
+      via: 'fkUsuario',//nombre del atributo FK del otro modelo
+    },
+     //Configuración del hijo
+     fkEmpresa:{ //nombre del fk para la relacion
+      model: 'Empresa'
     }
+    
   },
 
 };
@@ -68,3 +78,12 @@ module.exports = {
 //ESTANDAR RESTFUL
 //MÉTODO HTTP : POST
 //Body Params: usuario
+
+//Actualizar 
+//http://localhost:1337/usuario/:id
+//ESTANDAR RESTFUL
+//MÉTODO HTTP : Put
+//Body Params: usuario
+
+
+//buscar por id
