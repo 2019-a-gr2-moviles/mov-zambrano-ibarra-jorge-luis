@@ -16,11 +16,19 @@ class MainActivity : AppCompatActivity() {
         btnRespuesta.setOnClickListener(){
             irARespuesta()
         }
+        btnHttp.setOnClickListener(){
+            irAHTTP()
+        }
     }
     fun irARecyclerView(){
         val intentExplicito= Intent(this, RecicleViewActivity::class.java)
         startActivity(intentExplicito)
     }
+    fun irAHTTP(){
+        val intentExplicito= Intent(this, ConexionHttpActivity::class.java)
+        startActivity(intentExplicito)
+    }
+
 
     fun irARespuesta(){
         val intentExplicito= Intent(this, IntentRespuesta::class.java)
