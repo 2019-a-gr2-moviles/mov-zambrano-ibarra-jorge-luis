@@ -1,7 +1,7 @@
 package com.example.parcelable
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -19,6 +19,9 @@ class MainActivity : AppCompatActivity() {
         btnHttp.setOnClickListener(){
             irAHTTP()
         }
+        btnMap.setOnClickListener {
+            irAMapa()
+        }
     }
     fun irARecyclerView(){
         val intentExplicito= Intent(this, RecicleViewActivity::class.java)
@@ -32,6 +35,11 @@ class MainActivity : AppCompatActivity() {
 
     fun irARespuesta(){
         val intentExplicito= Intent(this, IntentRespuesta::class.java)
+        startActivity(intentExplicito)
+    }
+
+    fun irAMapa(){
+        val intentExplicito= Intent(this, MapsActivity::class.java)
         startActivity(intentExplicito)
     }
 

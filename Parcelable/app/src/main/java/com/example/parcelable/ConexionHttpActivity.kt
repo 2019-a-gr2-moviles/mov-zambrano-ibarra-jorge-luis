@@ -1,6 +1,6 @@
 package com.example.parcelable
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.beust.klaxon.Klaxon
@@ -9,6 +9,8 @@ import com.github.kittinunf.fuel.httpGet
 import java.util.*
 import com.github.kittinunf.result.Result.*
 import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.fuel.httpPost
+
 class ConexionHttpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,29 +39,41 @@ class ConexionHttpActivity : AppCompatActivity() {
             val empresaInstancia = Klaxon()
                 .parseArray<Empresa>(json)
             empresaInstancia?.forEach {
-                Log.i("http",
-                    "Nombre ${it.nombre}")
+                Log.i(
+                    "http",
+                    "Nombre ${it.nombre}"
+                )
 
-                Log.i("http",
-                    "ID ${it.id}")
+                Log.i(
+                    "http",
+                    "ID ${it.id}"
+                )
 
-                Log.i("http",
-                    "Fecha ${it.fechaCreacion}")
+                Log.i(
+                    "http",
+                    "Fecha ${it.fechaCreacion}"
+                )
                 it.usuariosDeEmpresas.forEach {
-                    Log.i("http",
-                        "Nombre Usuario ${it.nombre}")
-                    Log.i("http",
-                        "FK Empresa ${it.fkEmpresa}")
+                    Log.i(
+                        "http",
+                        "Nombre Usuario ${it.nombre}"
+                    )
+                    Log.i(
+                        "http",
+                        "FK Empresa ${it.fkEmpresa}"
+                    )
                 }
 
             }
-        } catch (e:Exception){
-            Log.i("http","${e.message}")
-            Log.i("http",
-                "Error instanciando la empresa")
+        } catch (e: Exception) {
+            Log.i("http", "${e.message}")
+            Log.i(
+                "http",
+                "Error instanciando la empresa"
+            )
         }
 
-    val url ="http://192.168.43.146:1337/empresa/3"
+        val url = "http://192.168.43.146:1337/empresa/3"
         url
             .httpGet()
             .responseString { request, response, result ->
@@ -75,13 +89,39 @@ class ConexionHttpActivity : AppCompatActivity() {
                         val empresaParseada = Klaxon()
                             .parse<Empresa>(data)
                         if (empresaParseada != null) {
-                            Log.i("http"," iiiiiiiiiiiiiiiiiiii ")
-                            Log.i("http","${empresaParseada.nombre} ")
-                            Log.i("http","${empresaParseada.id} ")
+                            Log.i("http", " iiiiiiiiiiiiiiiiiiii ")
+                            Log.i("http", "${empresaParseada.nombre} ")
+                            Log.i("http", "${empresaParseada.id} ")
                         }
                     }
                 }
 
 
-            }}
-}
+            }
+
+        val urlCrearEmpresa = "http://192.168.43.146:1337/empresa"
+        val parametrosCrearEmpresa= listOf(
+            "nombre" to "Jorge"
+        )
+             urlCrearEmpresa
+            .httpPost(parametrosCrearEmpresa)
+                 .responseString { request, response, result ->
+                             when (result) {
+                                 is Failure -> {
+                                     val ex = result.getException()
+                                     Log.i("http", "Error: ${ex}")
+                                 }
+                                 is Success -> {
+                                     val empresaString=result.get()
+                                     Log.i("http", "${empresaString}")
+
+                                 }
+                             }
+                         }
+                     }
+
+
+                 }
+
+
+
