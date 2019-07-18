@@ -22,6 +22,12 @@ class MainActivity : AppCompatActivity() {
         btnMap.setOnClickListener {
             irAMapa()
         }
+        btnCicloVida.setOnClickListener{
+            irACiclo()
+        }
+        btnFragmentos.setOnClickListener {
+            irAFragmentos()
+        }
     }
     fun irARecyclerView(){
         val intentExplicito= Intent(this, RecicleViewActivity::class.java)
@@ -42,5 +48,13 @@ class MainActivity : AppCompatActivity() {
         val intentExplicito= Intent(this, MapsActivity::class.java)
         startActivity(intentExplicito)
     }
+    fun irACiclo(){
+        val intentExplicito= Intent(this, CicloDeVida::class.java)
+        startActivity(intentExplicito)
+    }
 
+    fun irAFragmentos(){
+        val intentExplicito= Intent(this, FragmentosActivity::class.java)
+        startActivity(intentExplicito)
+    }
 }
