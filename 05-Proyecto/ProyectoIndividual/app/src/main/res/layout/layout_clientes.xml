@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical" android:background="@color/colorTextoBotones"
+              android:id="@+id/linear_layout_cli">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/lay_cam_cli">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:layout_width="41dp"
+                    android:layout_height="wrap_content" android:id="@+id/textView" android:layout_weight="1"
+                    android:textColor="@color/colorCampos" android:textStyle="bold" android:text="@string/id_cliente"/>
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/txt_id_cli" android:layout_weight="1"
+                    android:textColor="@color/colorTextoCampos"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_width="41dp"
+                    android:layout_height="match_parent" android:id="@+id/textView" android:layout_weight="1"
+                    android:textColor="@color/colorCampos" android:textStyle="bold"
+                    android:text="@string/nombre_cliente"/>
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/txt_nom_cli" android:layout_weight="1"
+                    android:textColor="@color/colorTextoCampos"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:text="Dirrecion"
+                    android:layout_width="41dp"
+                    android:layout_height="match_parent" android:id="@+id/textView" android:layout_weight="1"
+                    android:textColor="@color/colorCampos" android:textStyle="bold"/>
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/txt_dir_cli" android:layout_weight="1"
+                    android:textColor="@color/colorTextoCampos"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:text="@string/cedula_cliente"
+                    android:layout_width="41dp"
+                    android:layout_height="match_parent" android:id="@+id/textView" android:layout_weight="1"
+                    android:textColor="@color/colorCampos" android:textStyle="bold"/>
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/txt_ced_cli" android:layout_weight="1"
+                    android:textColor="@color/colorTextoCampos"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_weight="1">
+            <TextView
+                    android:text="Telefono"
+                    android:layout_width="41dp"
+                    android:layout_height="match_parent" android:id="@+id/Telefono" android:layout_weight="1"
+                    android:textColor="@color/colorCampos" android:textStyle="bold"/>
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/txt_tel_cli" android:layout_weight="1"
+                    android:textColor="@color/colorTextoCampos" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="31dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView5" android:layout_weight="1"/>
+        <Button
+                android:text="@string/btn_eliminar"
+                android:layout_width="148dp"
+                android:layout_height="30dp" android:id="@+id/btn_eli_cli"
+                android:background="@color/colorBotones" android:textColor="@color/colorTextoBotones"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView6" android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>
