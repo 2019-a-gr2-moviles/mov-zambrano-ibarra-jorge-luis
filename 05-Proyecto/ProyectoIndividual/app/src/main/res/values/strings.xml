@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Aventura</string>
+
+    <string name="txt_cliente">CLIENTES</string>
+
+    <string name="insertar">INGRESAR</string>
+    <string name="actualizar">ACTUALIZAR</string>
+    <string name="ver">VER</string>
+    <string name="modificarEliminar">MODIFICAR O ELIMINAR</string>
+    <string name="title_activity_menu_clientes">MENU CLIENTES</string>
+    <string name="title_activity_menu_canchas">MENU CANCHAS</string>
+    <string name="nombre_cliente">Nombre</string>
+    <string name="id_cliente">Id</string>
+    <string name="apellido_cliente">Apellido</string>
+    <string name="cedula_cliente">Cedula</string>
+    <string name="btn_eliminar">Eliminar</string>
+    <string name="codigo">CODIGO:</string>
+    <string name="id_zapato">Id</string>
+     <string name="datos_cliente">Ingrese los datos del cliente solicitados</string>
+    <string name="datos_cancha">Ingrese los datos del cancha</string>
+
+
+</resources>
