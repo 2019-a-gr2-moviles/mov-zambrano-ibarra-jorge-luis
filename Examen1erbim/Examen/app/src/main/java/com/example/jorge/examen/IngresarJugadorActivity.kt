@@ -17,10 +17,10 @@ class IngresarJugadorActivity : AppCompatActivity() {
         usuario = intent.getStringExtra("usuario").toString()
         equipoRespaldo = intent.getParcelableExtra<EquipoFutbol>("EquipoRespaldo")
         padreId = intent.getIntExtra("padreId", -1)
-        btnGuardar.setOnClickListener { guardarJugador() }
+        //btnGuardar.setOnClickListener { guardarJugador() }
     }
 
-    fun guardarJugador(){
+    /*fun guardarJugador(){
         val jugador = Jugador(
             id = null,
             numeroCamiseta = txtnumeroCamiseta.text.toString().toInt(),
@@ -38,7 +38,7 @@ class IngresarJugadorActivity : AppCompatActivity() {
         retorno.putExtra("padreId", padreId)
         retorno.putExtra("EquipoRespaldo", equipoRespaldo)
         startActivity(retorno)
-    }
+    }*/
     override fun onBackPressed() {
 
         val intentMenu = Intent(this, ActualizarActivity::class.java)

@@ -21,12 +21,12 @@ class ConsultarJugadorActivity : AppCompatActivity() {
         val equipo=intent.getParcelableExtra<EquipoFutbol>("EquipoRespaldo")
         setContentView(R.layout.activity_consultar_jugador)
         val nombre=equipo.nombre.toString();
-        val adapter = ArrayAdapter<Jugador>(
-            this,
-            android.R.layout.simple_list_item_1,
-            BDJugador.mostrarJugador(padreId)
-        )
-        lstJugador.adapter = adapter;
+        //val adapter = ArrayAdapter<Jugador>(
+            //this,
+            //android.R.layout.simple_list_item_1,
+            //BDJugador.mostrarJugador(padreId)
+       // )//
+       // lstJugador.adapter = adapter;
         lstJugador.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
 
             val jugadorSeleccionado = parent.getItemAtPosition(position) as Jugador

@@ -1,40 +1,117 @@
-package com.example.jorge.examen
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.jorge.examen.EquipoFutbol
+import com.example.jorge.examen.ListaEquipo
+import com.example.jorge.examen.R
 
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import kotlinx.android.synthetic.main.activity_consultar.*
-import kotlinx.android.synthetic.main.activity_main.*
+class ConsultarActivity(
+    private val listaCanchas: ArrayList<EquipoFutbol>,
+    private val contexto: ListaEquipo,
+    private val recyclerView: RecyclerView
+) :
+    RecyclerView.Adapter<ConsultarActivity.MyViewHolder>() {
 
-class ConsultarActivity : AppCompatActivity() {
-    var usuario :String = "";
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_consultar)
-        usuario = intent.getStringExtra("usuario").toString()
-        val adapter = ArrayAdapter<EquipoFutbol>(
-            this,
-            android.R.layout.simple_list_item_1,
-            BDEquipoFutbol.mostrarEquipo()
-        )
-        lstView.adapter = adapter;
-        lstView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+    inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var idTextView: TextView
+        var numeroTextview: TextView
+        var descTextView: TextView
 
-            val equipoSeleccionada = parent.getItemAtPosition(position) as EquipoFutbol
-            val intentEquipoSeleccionada = Intent(this, ActualizarActivity::class.java)
-            intentEquipoSeleccionada.putExtra("Equipo", equipoSeleccionada)
-            intentEquipoSeleccionada.putExtra("usuario", usuario)
-            startActivity(intentEquipoSeleccionada)
+        var metrosTextView: TextView
+        var precioTextView: TextView
+        var eliminarBoton: Button
+
+
+        init {
+            idTextView = view.findViewById(R.id.txt_id_zap) as TextView
+            numeroTextview = view.findViewById(R.id.txt_num_can) as TextView
+            descTextView = view.findViewById(R.id.txt_desc_can) as TextView
+            precioTextView = view.findViewById(R.id.txt_prec_can) as TextView
+            metrosTextView = view.findViewById(R.id.txt_met_can) as TextView
+
+            eliminarBoton = view.findViewById(R.id.btn_eli_zap) as Button
+
+            val layout = view.findViewById(R.id.lay_cam_can) as LinearLayout
+            layout.setOnClickListener {
+                val cancha = crearCancha(
+                    idTextView.text.toString().toInt(),
+                    numeroTextview.text.toString().toInt(),
+                    descTextView.text.toString(),
+                    precioTextView.text.toString().toDouble(),
+                    metrosTextView.text.toString().toDouble()
+
+                )
+                contexto.irActulizarCancha(cancha)
+            }
+
+            eliminarBoton.setOnClickListener {
+
+                val cancha = crearCancha(
+                    idTextView.text.toString().toInt(),
+                    numeroTextview.text.toString().toInt(),
+                    descTextView.text.toString(),
+                    precioTextView.text.toString().toDouble(),
+                    metrosTextView.text.toString().toDouble()
+
+                )
+                contexto.eliminarCancha(cancha)
+
+            }
+
         }
+    }
+
+
+    //Esta función define el template que vamos a utilizar.
+    // El template esta en la carpeta de recursos res/layout -> layout
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
+        val itemView = LayoutInflater
+            .from(p0.context)
+            .inflate(
+                R.layout.layout_cancha,
+                p0,
+                false
+            )
+        return MyViewHolder(itemView)
+    }
+
+    //Devuelve el número de items de la lista
+    override fun getItemCount(): Int {
+        return listaCanchas.size
+    }
+
+    override fun onBindViewHolder(myViewHolder: MyViewHolder, position: Int) {
+        val cancha: Cancha = listaCanchas[position]
+        myViewHolder.idTextView.text = cancha.id.toString()
+        myViewHolder.numeroTextview.text = cancha.numero.toString()
+        myViewHolder.precioTextView.text = cancha.precio.toString()
+        myViewHolder.descTextView.text = cancha.desc.toString()
+        myViewHolder.metrosTextView.text = cancha.metros.toString()
 
 
     }
-    override fun onBackPressed() {
 
-        val intentMenu = Intent(this, MenuActivity::class.java)
-        intentMenu.putExtra("usuario", usuario)
-        startActivity(intentMenu)
+    fun crearCancha(
+        id: Int,
+        numero: Int,
+        descripcion: String,
+        precio: Double,
+        metros: Double
+    ): Cancha {
+        val cancha = Cancha(
+            null,
+            null,
+            id,
+            numero,
+            descripcion,
+            precio,
+            metros
+
+        )
+        return cancha
     }
 }

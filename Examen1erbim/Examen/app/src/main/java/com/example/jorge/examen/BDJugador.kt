@@ -12,10 +12,10 @@ class BDJugador {
             return LST_JUGADOR
         }
 
-        fun mostrarJugador(padreId:Int): List<Jugador> {
+        /*fun mostrarJugador(padreId:Int): List<Jugador> {
             val lstFiltradaJugador = LST_JUGADOR.filter { it.equipoFutbolId ==  padreId}
             return lstFiltradaJugador
-        }
+        }*/
 
         fun eliminarJugador(id:Int){
             LST_JUGADOR.removeAll{ it.id == id }

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.facebook.react:react-native-fetch-blob:0.10.8-jitsi-3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9d9c55b46c4d2a2a8e7c19a26e9261b4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9d9c55b46c4d2a2a8e7c19a26e9261b4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4cda57f078930ad7757369396529f513/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4cda57f078930ad7757369396529f513/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

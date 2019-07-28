@@ -1,16 +1,16 @@
 <component name="libraryTable">
   <library name="Gradle: com.cometchat:pro-android-chat-sdk:1.0.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a75328c8106008bd7b8f456772227462/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/923be4e2a8b464cab1ab26dc550bf3e7/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a75328c8106008bd7b8f456772227462/jars/libs/gson-2.8.5.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a75328c8106008bd7b8f456772227462/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a75328c8106008bd7b8f456772227462/jars/libs/slf4j-api-1.7.25.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a75328c8106008bd7b8f456772227462/jars/libs/okio-1.15.0.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a75328c8106008bd7b8f456772227462/jars/libs/slf4j-simple-1.7.25.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a75328c8106008bd7b8f456772227462/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a75328c8106008bd7b8f456772227462/jars/libs/okhttp-3.12.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/923be4e2a8b464cab1ab26dc550bf3e7/jars/libs/gson-2.8.5.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/923be4e2a8b464cab1ab26dc550bf3e7/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/923be4e2a8b464cab1ab26dc550bf3e7/jars/libs/okio-1.15.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/923be4e2a8b464cab1ab26dc550bf3e7/jars/libs/slf4j-simple-1.7.25.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/923be4e2a8b464cab1ab26dc550bf3e7/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/923be4e2a8b464cab1ab26dc550bf3e7/jars/libs/okhttp-3.12.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/923be4e2a8b464cab1ab26dc550bf3e7/jars/libs/slf4j-api-1.7.25.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

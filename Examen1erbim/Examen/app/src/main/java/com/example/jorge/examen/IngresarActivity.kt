@@ -25,11 +25,11 @@ class IngresarActivity : AppCompatActivity() {
     }
 
     fun aceptarIngreso(){
-        val camp: Byte
+        val camp: Boolean
         if(checkBox.isChecked){
-            camp=1
+            camp=true
         }else{
-            camp=0
+            camp=false
         }
         val equipo= EquipoFutbol(
             id = null,

@@ -29,7 +29,6 @@ class ContactosAdapter(
     private val recyclerView: RecyclerView
 
 
-
 ): RecyclerView.Adapter<ContactosAdapter.MyViewHolder>() {
     var posi:Int=0
     var estado:Boolean=false
