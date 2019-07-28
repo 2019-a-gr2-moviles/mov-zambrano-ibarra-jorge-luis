@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "362877515974",
+    "firebase_url": "https://examen-2bim.firebaseio.com",
+    "project_id": "examen-2bim",
+    "storage_bucket": "examen-2bim.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362877515974:android:af8cbcb04f33957d",
+        "android_client_info": {
+          "package_name": "com.example.examenapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "362877515974-3kk7nfbolq1lejinsm7fafu2vganegu2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf3LGGuS1aeRG_LWHGvPYTWcDf5qb-2uo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362877515974-3kk7nfbolq1lejinsm7fafu2vganegu2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
