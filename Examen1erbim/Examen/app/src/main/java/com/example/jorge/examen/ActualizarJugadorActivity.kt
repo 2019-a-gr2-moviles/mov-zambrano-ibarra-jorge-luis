@@ -26,11 +26,11 @@ class ActualizarJugadorActivity : AppCompatActivity() {
         txtGoles.setText(jugadorRecibido.goles.toString())
         id = jugadorRecibido.id.toString().toInt()
         idPadre = jugadorRecibido.equipoFutbolId.toString().toInt()
-        btnActualizarJugador.setOnClickListener { actualizarJugador() }
+       // btnActualizarJugador.setOnClickListener { actualizarJugador() }
         btnEliminarJugador.setOnClickListener { eliminarJugador() }
     }
 
-    fun actualizarJugador(){
+    /*fun actualizarJugador(){
         val jugador = Jugador(
             id = id,
             numeroCamiseta = txtnumeroCamiseta.text.toString().toInt(),
@@ -48,7 +48,7 @@ class ActualizarJugadorActivity : AppCompatActivity() {
         retorno.putExtra("padreId", idPadre)
         retorno.putExtra("EquipoRespaldo", equipoRespaldo)
         startActivity(retorno)
-    }
+    }*/
 
     fun eliminarJugador(){
         BDJugador.eliminarJugador(id)

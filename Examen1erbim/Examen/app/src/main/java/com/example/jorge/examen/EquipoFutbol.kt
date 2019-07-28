@@ -5,42 +5,39 @@ import android.content.Context
 import android.content.res.Resources
 import android.os.Parcel
 import android.os.Parcelable
+
 import android.provider.Settings.System.getString
 import android.support.v4.content.res.TypedArrayUtils.getText
 
 
 
 class EquipoFutbol(
-
     var id:Int?,
     var nombre:String,
-    var liga:String,
     var fechaCreacion:String,
-    var numeroCopasInternacionales:Int, var campeonActual: Byte
+    var liga:String,
+    var numeroCopasInternacionales:Int,
+    var campeonActual: Boolean
 ) :Parcelable{
-
     constructor(parcel: Parcel) : this(
+
         parcel.readValue(Int::class.java.classLoader) as? Int,
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readInt(),
-        parcel.readByte()
+        parcel.readByte() != 0.toByte()
     ) {
     }
 
-
-    override fun toString(): String {
-        return "${nombre}";
-    }
-
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+
         parcel.writeValue(id)
         parcel.writeString(nombre)
         parcel.writeString(liga)
         parcel.writeString(fechaCreacion)
         parcel.writeInt(numeroCopasInternacionales)
-        parcel.writeByte(campeonActual)
+        parcel.writeByte(if (campeonActual) 1 else 0)
     }
 
     override fun describeContents(): Int {
@@ -56,4 +53,5 @@ class EquipoFutbol(
             return arrayOfNulls(size)
         }
     }
+
 }

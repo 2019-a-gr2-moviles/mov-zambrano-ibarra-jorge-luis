@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.activity_ingresar.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class ActualizarActivity : AppCompatActivity() {
+    var createdAt: Long=0
+    var updatedat: Long=0
     var padreId : Int = 0
     var usuario :String = "";
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,89 +44,90 @@ class ActualizarActivity : AppCompatActivity() {
         btnMenuRetorno.setOnClickListener { retorno() }
     }
 
-    fun actualizarEquipo(){
-        var cam:Byte
-        if(rdActualizarCam.isChecked){
-            cam=1
-        }else{
-            cam=0
-        }
-        val actualizarEquipo = EquipoFutbol(
-            id = padreId,
-            nombre = txtNombre.text.toString(),
-            liga = txtLiga.text.toString(),
-            fechaCreacion = txtFechaCreacion.text.toString(),
-            numeroCopasInternacionales = txtNumCopInter.text.toString().toInt(),
-            campeonActual = cam
-        )
-        BDEquipoFutbol.actualizarEquipo(actualizarEquipo)
-        Toast.makeText(this, getString(R.string.msgActualizar)+" "+usuario, Toast.LENGTH_SHORT).show()
-        val retorno = Intent(this, ConsultarActivity::class.java)
-        retorno.putExtra("usuario", usuario)
-        startActivity(retorno)
+fun actualizarEquipo(){
+    var cam:Boolean
+    if(rdActualizarCam.isChecked){
+        cam=true
+    }else{
+        cam=false
     }
+    val actualizarEquipo = EquipoFutbol(
+        id = padreId,
+        nombre = txtNombre.text.toString(),
+        liga = txtLiga.text.toString(),
+        fechaCreacion = txtFechaCreacion.text.toString(),
+        numeroCopasInternacionales = txtNumCopInter.text.toString().toInt(),
+        campeonActual = cam
+    )
+    BDEquipoFutbol.actualizarEquipo(actualizarEquipo)
+    Toast.makeText(this, getString(R.string.msgActualizar)+" "+usuario, Toast.LENGTH_SHORT).show()
+    val retorno = Intent(this, ConsultarActivity::class.java)
+    retorno.putExtra("usuario", usuario)
+    startActivity(retorno)
 
-    fun eliminarEquipo(){
-        BDEquipoFutbol.eliminarEquipo(padreId);
-        Toast.makeText(this, getString(R.string.msgEliminar)+" "+usuario, Toast.LENGTH_SHORT).show()
-        val retorno = Intent(this, ConsultarActivity::class.java)
-        retorno.putExtra("usuario", usuario)
-        startActivity(retorno)
-    }
+}
 
-    fun crearJugador(){
-        val cam:Byte
-        if(rdActualizarCam.isChecked){
-            cam=1
-        }else{
-            cam=0
-        }
-        val equipoRespaldo = EquipoFutbol(
-            id = padreId,
-            nombre = txtNombre.text.toString(),
-            liga = txtLiga.text.toString(),
-            fechaCreacion = txtFechaCreacion.text.toString(),
-            numeroCopasInternacionales = txtNumCopInter.text.toString().toInt(),
-            campeonActual = cam
-        )
-        val retorno = Intent(this, IngresarJugadorActivity::class.java)
-        retorno.putExtra("usuario", usuario)
-        retorno.putExtra("padreId", padreId)
-        retorno.putExtra("EquipoRespaldo", equipoRespaldo)
-        startActivity(retorno)
-    }
+fun eliminarEquipo(){
+    BDEquipoFutbol.eliminarEquipo(padreId);
+    Toast.makeText(this, getString(R.string.msgEliminar)+" "+usuario, Toast.LENGTH_SHORT).show()
+    val retorno = Intent(this, ConsultarActivity::class.java)
+    retorno.putExtra("usuario", usuario)
+    startActivity(retorno)
+}
 
-    fun gestionarJugador(){
-        val cam:Byte
-        if(rdActualizarCam.isChecked){
-            cam=1
-        }else{
-            cam=0
-        }
-        val equipoRespaldo = EquipoFutbol(
-            id = padreId,
-            nombre = txtNombre.text.toString(),
-            liga = txtLiga.text.toString(),
-            fechaCreacion = txtFechaCreacion.text.toString(),
-            numeroCopasInternacionales = txtNumCopInter.text.toString().toInt(),
-            campeonActual = cam
-        )
-        val retorno = Intent(this, ConsultarJugadorActivity::class.java)
-        retorno.putExtra("usuario", usuario)
-        retorno.putExtra("padreId", padreId)
-        retorno.putExtra("EquipoRespaldo", equipoRespaldo)
-        startActivity(retorno)
+fun crearJugador(){
+    val cam:Boolean
+    if(rdActualizarCam.isChecked){
+        cam=true
+    }else{
+        cam=false
     }
+    val equipoRespaldo = EquipoFutbol(
+        id = padreId,
+        nombre = txtNombre.text.toString(),
+        liga = txtLiga.text.toString(),
+        fechaCreacion = txtFechaCreacion.text.toString(),
+        numeroCopasInternacionales = txtNumCopInter.text.toString().toInt(),
+        campeonActual = cam
+    )
+    val retorno = Intent(this, IngresarJugadorActivity::class.java)
+    retorno.putExtra("usuario", usuario)
+    retorno.putExtra("padreId", padreId)
+    retorno.putExtra("EquipoRespaldo", equipoRespaldo)
+    startActivity(retorno)
+}
 
-    fun retorno(){
-        val retorno = Intent(this, MenuActivity::class.java)
-        retorno.putExtra("usuario", usuario)
-        startActivity(retorno)
+fun gestionarJugador(){
+    val cam:Boolean
+    if(rdActualizarCam.isChecked){
+        cam=true
+    }else{
+        cam=false
     }
-    override fun onBackPressed() {
+    val equipoRespaldo = EquipoFutbol(
+        id = padreId,
+        nombre = txtNombre.text.toString(),
+        liga = txtLiga.text.toString(),
+        fechaCreacion = txtFechaCreacion.text.toString(),
+        numeroCopasInternacionales = txtNumCopInter.text.toString().toInt(),
+        campeonActual = cam
+    )
+    val retorno = Intent(this, ConsultarJugadorActivity::class.java)
+    retorno.putExtra("usuario", usuario)
+    retorno.putExtra("padreId", padreId)
+    retorno.putExtra("EquipoRespaldo", equipoRespaldo)
+    startActivity(retorno)
+}
 
-        val intentMenu = Intent(this, ConsultarActivity::class.java)
-        intentMenu.putExtra("usuario", usuario)
-        startActivity(intentMenu)
-    }
+fun retorno(){
+    val retorno = Intent(this, MenuActivity::class.java)
+    retorno.putExtra("usuario", usuario)
+    startActivity(retorno)
+}
+override fun onBackPressed() {
+
+    val intentMenu = Intent(this, ConsultarActivity::class.java)
+    intentMenu.putExtra("usuario", usuario)
+    startActivity(intentMenu)
+}
 }

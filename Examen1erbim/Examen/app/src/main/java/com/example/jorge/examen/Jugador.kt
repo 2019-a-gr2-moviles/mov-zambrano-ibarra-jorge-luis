@@ -10,7 +10,7 @@ class Jugador(var id:Int?,
               var poderEspecialDos:String,
               var fechaIngresoEquipo:String,
               var goles:Int,
-              var equipoFutbolId:Int): Parcelable {
+              var equipoFutbolId:EqupoFutbolAuxiliar?): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readValue(Int::class.java.classLoader) as? Int,
         parcel.readInt(),
@@ -19,7 +19,7 @@ class Jugador(var id:Int?,
         parcel.readString(),
         parcel.readString(),
         parcel.readInt(),
-        parcel.readInt()
+        parcel.readParcelable<EqupoFutbolAuxiliar>(Int::class.java.classLoader)
     ) {
     }
 
@@ -35,7 +35,8 @@ class Jugador(var id:Int?,
         parcel.writeString(poderEspecialDos)
         parcel.writeString(fechaIngresoEquipo)
         parcel.writeInt(goles)
-        parcel.writeInt(equipoFutbolId)
+        parcel.writeParcelable(equipoFutbolId, flags)
+
     }
 
     override fun describeContents(): Int {
